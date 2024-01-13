@@ -8,7 +8,7 @@ t: # translations
 
 title: 简历
 name: 伊洪 (yihong0618)
-bio: 开源爱好者(GitHub 4.5k followers, 2w+ stars) / 多个千 Stars 项目作者 / 多个项目核心开发者(vscode-leetcode, stravalib, autocut, DB-GPT, taichi)
+bio: 开源爱好者(GitHub 4.8k followers, 2w+ stars) / 多个千 Stars 项目作者 / 多个项目核心开发者(vscode-leetcode, stravalib, autocut, DB-GPT, taichi...)
 description: 5 年 Python 开发经验，全栈开发者；擅长后端开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；擅长数据可视化；熟悉 AIGC 开发 xiaogpt 作者；参加了多个开源活动；有讲师经历。
 
 location: 辽宁大连
@@ -100,22 +100,22 @@ stack:
   - AIGC
 
 open_source:
-  - name: running_page -> 2824 stars and 774 forks.
+  - name: running_page
     repository: https://github.com/yihong0618/running_page
     description: Make your own running home page
-  - name: bilingual_book_maker -> 6272 stars and 936 forks.
+  - name: bilingual_book_maker
     repository: https://github.com/yihong0618/bilingual_book_maker
     description:
-  - name: xiaogpt -> 3910 stars and 566 forks
+  - name: xiaogpt
     repository: https://github.com/yihong0618/xiaogpt
     description: Play ChatGPT and other LLM with Xiaomi AI Speaker
   - name: Kindle_download_helper 2084 stars and 177 forks.
     repository: https://github.com/yihong0618/Kindle_download_helper
     description: Download all your kindle books script.
-  - name: GitHubPoster -> 1549 stars and 271 forks.
+  - name: GitHubPoster
     repository: https://github.com/yihong0618/GitHubPoster
     description: Make everything a GitHub svg poster and Skyline!
-  - name: gitblog -> 1185 stars and 119 forks.
+  - name: gitblog
     repository: https://github.com/yihong0618/gitblog
     description: My personal blog using issues and GitHub Actions
 
