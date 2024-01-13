@@ -109,7 +109,7 @@ open_source:
   - name: xiaogpt
     repository: https://github.com/yihong0618/xiaogpt
     description: Play ChatGPT and other LLM with Xiaomi AI Speaker
-  - name: Kindle_download_helper 2084 stars and 177 forks.
+  - name: Kindle_download_helper
     repository: https://github.com/yihong0618/Kindle_download_helper
     description: Download all your kindle books script.
   - name: GitHubPoster
