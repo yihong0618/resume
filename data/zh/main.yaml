@@ -1,4 +1,4 @@
-t:  # translations
+t: # translations
   work_experience: 工作经历
   skills: 技能
   open_source: 开源项目
@@ -6,132 +6,122 @@ t:  # translations
   honors: 其他荣誉
   education: 教育经历
 
-title: 个人简历
-name: 明希 (Frost Ming)
-bio: 微软 MVP / PyPA 成员 / PDM 作者
-description: 8 年 Python 开发经验，全栈开发者；擅长 Web 开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；PyCon China 讲师。
+title: 简历
+name: 伊洪 (yihong0618)
+bio: 开源爱好者(GitHub 4.5k followers, 2w+ stars) / 多个千 Stars 项目作者 / 多个项目核心开发者(vscode-leetcode, stravalib, autocut, DB-GPT, taichi)
+description: 5 年 Python 开发经验，全栈开发者；擅长后端开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；擅长数据可视化；熟悉 AIGC 开发 xiaogpt 作者；参加了多个开源活动；有讲师经历。
 
-location: 广东深圳，中国
-phone: (+86)18922804264
-email: me@frostming.com
+location: 辽宁大连
+email: zouzou0208@gmail.com
+tg: yihong0618
 
 links:
   - icon: fa-solid fa-globe
-    url: https://frostming.com
-  - icon: fa-brands fa-weixin
-    url: frostanne
+    url: https:/yihong.run
+  - icon: fa-solid fa-globe
+    url: https://github.com/yihong0618/gitblog
   - icon: fa-brands fa-github
-    url: https://github.com/frostming
-  - icon: fa-brands fa-linkedin
-    url: https://www.linkedin.com/in/frostming/
+    url: https://github.com/yihong0618
+  - icon: fa-brands fa-telegram
+    url: https://t.me/yihong0618
 
 skills:
   - name: Python
     value: 90
+  - name: Database
+    value: 60
   - name: JS/TS
-    value: 65
+    value: 60
   - name: Golang
     value: 60
   - name: Linux
     value: 65
   - name: CI/CD
-    value: 70
-  - name: Web Development
     value: 75
+  - name: Web Development
+    value: 65
 
 work_experience:
-  - company: Crypto.com
-    position: 量化开发工程师
-    start: '2020.9'
-    end: '2023.2'
+  - company: VMware
+    position: 数据库开发工程师(Greenplum)
+    start: "2022.3"
+    end: "now"
     content: |
-      开发了多个供量化交易员使用的内部系统及对应的基础组件：
+      维护和开发多个 Greenplum 的 extensions
 
-      * 交易数据中台：实现交易员的各种内部运维需求及内部数据看板
-      * 统一用户权限中心：在交易团队内部使用的集用户认证、权限校验、权限管理的权限中心
-      * Apollo Config Python SDK：在 Apollo Config HTTP API 基础上封装的 Python SDK，同时支持同步和异步，以及配置值加解密功能
+      * pgvector 引入 Greenplum 
+      * 重新 gpdb 的多个 CI/CD, 使其更容易维护
+      * 协助将 pgrx 和 pgml 引入 gpdb
+      * 开发多个将 ChatGPT 和 gpdb 结合的项目
 
-  - company: 太极图形
-    position: CI/CD 工程师(兼职)
-    start: '2021.11'
-    end: '2022.6'
+  - company: 思科
+    position: 网络自动化工程师
+    start: "2019.10"
+    end: "2022.3"
     content: |
-      期间为 taichi 项目的持续集成做了多项改进：（列举部分）
 
-      * PR#3852: Add self-hosted Windows buildbot for GPU testing
-      * PR#4624: Switch to scikit-build as the build backend
-      * PR#4546: Parametrize the test cases with pytest.mark
-      * PR#4633: Use pre-commit to run linters and formatters
-      * PR#4428: Automate release publishing
+      * 利用 Python 开发多个网络自动化工具
+      * Python Django 给网络维护人员编写维护工具 
+      * 引入 AI 进行网络自动化诊断
 
-  - company: 腾讯
-    position: 测试开发
-    start: '2018.7'
-    end: '2020.9'
+  - company: 东软教育科技集团
+    position: 软件开发 / 讲师
+    start: "2018.9"
+    end: "2019.10"
     content: |
-      **负责财付通内部的持续集成系统开发**
+      * 负责开发教学软件（项目实训，项目实践）
+      * 负责校外校内的 Python 培训工作
 
-      * 把执行引擎从 Jenkins 迁移到自研的任务处理器
-      * 升级改进了工作流的自定义任务，支持从 YAML 读入配置
-      * 服务模块 3000 多个
-      * 日均构建数 100 次
-
-      **负责测试数据管理系统的开发**
-
-      * 用 Django & SQLAlchemy 开发实现了多环境测试数据同步系统
-
-  - company: ASML Brion
-    position: 测试
-    start: '2014.7'
-    end: '2018.7'
+  - company: 金山（西山居）
+    position: 数据分析师 / 游戏运营
+    start: "2015.4"
+    end: "2018.9"
     content: |
-      **负责对计算光刻的 Tachyon 系列软件的 GUI 测试**
 
-      **开发与维护自动化测试框架**
+      * 负责《小米枪战》的数据设计, 埋点及数据分析
+      * 负责《反恐行动》的数据分析，数据报告编写
+      * 负责竞品和市场调研，总结调研报告，分析市场，从而指导开发立项多个项目
+      * 负责西山居大连 VR 实验室的建立，开发，及游戏预研。
 
-      * 基于 Qt(PyQt) + RPC
-      * 实现图片的自动比较，计算差异
+  - company: 米其林（实习）
+    position: 机械工程师
+    start: "2014.5"
+    end: "2015.2"
+    content: |
 
-      **设计开发了自动化测试管理平台**
-
-      * 基于 Flask
-      * 管理多个节点的测试用例执行与结果收集
-      * 利用 Robotframework 生成测试报告并发送通知
+      * 参与机械维修部门备件仓库的建立 
+      * 负责整理各个机械备件需求 BOM
 
 stack:
-  - PDM
-  - Flask
-  - Django
-  - FastAPI
-  - Pandas
-  - Vue.js
+  - 市场及运营
+  - 数据分析
+  - Python
   - React
-  - Next
+  - AIGC
 
 open_source:
-  - name: PDM
-    repository: https://github.com/pdm-project/pdm
-    description: 功能强大、可扩展、遵循最新标准的 Python 包管理器
-  - name: Marko
-    repository: https://github.com/frostming/marko
-    description: 可扩展的 Markdown 解析器和渲染器
-  - name: unearth
-    repository: https://github.com/frostming/unearth
-    description: PyPI 包的下载工具，支持给定依赖
-  - name: tomlkit
-    repository: https://github.com/sdispater/tomlkit
-    description: Python 实现的保持格式和注释的 TOML 解析器和序列化器
+  - name: running_page -> 2824 stars and 774 forks.
+    repository: https://github.com/yihong0618/running_page
+    description: Make your own running home page
+  - name: bilingual_book_maker -> 6272 stars and 936 forks.
+    repository: https://github.com/yihong0618/bilingual_book_maker
+    description:
+  - name: xiaogpt -> 3910 stars and 566 forks
+    repository: https://github.com/yihong0618/xiaogpt
+    description: Play ChatGPT and other LLM with Xiaomi AI Speaker
+  - name: Kindle_download_helper 2084 stars and 177 forks.
+    repository: https://github.com/yihong0618/Kindle_download_helper
+    description: Download all your kindle books script.
+  - name: GitHubPoster -> 1549 stars and 271 forks.
+    repository: https://github.com/yihong0618/GitHubPoster
+    description: Make everything a GitHub svg poster and Skyline!
+  - name: gitblog -> 1185 stars and 119 forks.
+    repository: https://github.com/yihong0618/gitblog
+    description: My personal blog using issues and GitHub Actions
 
 education:
-  - school: 中国科学院大学
-    start: 2011
-    end: 2014
+  - school: 沈阳工业大学
+    start: 2012
+    end: 2015
     degree: 工程硕士
-    major: 集成电路工艺
-    content: 半导体器件工艺的研究
-  - school: 中国科学技术大学
-    start: 2007
-    end: 2011
-    degree: 工学学士
-    major: 电子科学技术
-    content: 'GPA: 3.8/4.0'
+    major: 机械工程

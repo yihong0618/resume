@@ -1,4 +1,4 @@
-# Resume of Frost Ming
+# Resume of yihong0618(fork from [frostming/resume](https://github.com/frostming/resume))
 
 Requires: [PDM](https://pdm.fming.dev) and Python >= 3.10
 
