@@ -25,22 +25,6 @@ links:
   - icon: fa-brands fa-telegram
     url: https://t.me/yihong0618
 
-skills:
-  - name: Python
-    value: 90
-  - name: Database
-    value: 60
-  - name: JS/TS
-    value: 60
-  - name: Golang
-    value: 60
-  - name: Linux
-    value: 65
-  - name: CI/CD
-    value: 75
-  - name: Web Development
-    value: 65
-
 work_experience:
   - company: VMware
     position: 数据库开发工程师(Greenplum)
@@ -75,7 +59,7 @@ work_experience:
   - company: 金山（西山居）
     position: 数据分析师 / 游戏运营
     start: "2015.4"
-    end: "2018.9"
+    end: "2018.4"
     content: |
 
       * 负责《小米枪战》的数据设计, 埋点及数据分析
@@ -90,14 +74,17 @@ work_experience:
     content: |
 
       * 参与机械维修部门备件仓库的建立 
-      * 负责整理各个机械备件需求 BOM
+      * 负责整理各个机械备件需求 BOM 表
 
 stack:
-  - 市场及运营
-  - 数据分析
   - Python
+  - DevOps
   - React
+  - Open-source
   - AIGC
+  - 市场运营
+  - 数据分析
+  - 数据可视化
 
 open_source:
   - name: running_page
@@ -118,6 +105,12 @@ open_source:
   - name: gitblog
     repository: https://github.com/yihong0618/gitblog
     description: My personal blog using issues and GitHub Actions
+  - name: epubhv
+    repository: https://github.com/yihong0618/epubhv
+    description: Make your epub books vertical or horizontal. 
+  - name: vscode-gcores
+    repository: https://github.com/yihong0618/vscode-gcores
+    description: Play Gcores in VSCode
 
 education:
   - school: 沈阳工业大学
