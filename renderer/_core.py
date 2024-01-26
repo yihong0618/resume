@@ -40,7 +40,7 @@ class ResumeRenderer:
 
     def get_url(self, path: str) -> str:
         if base_url := os.environ.get("BASE_URL"):
-            return base_url + path
+            return base_url + "/" + "resume" + path
         if path.startswith("/"):
             return self.path + path
         return path
