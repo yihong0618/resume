@@ -8,8 +8,8 @@ t: # translations
 
 title: 简历
 name: 伊洪 (yihong0618)
-bio: 开源爱好者(GitHub 4.8k followers, 2w+ stars) / 多个千 Stars 项目作者 / 多个项目核心开发者(vscode-leetcode, stravalib, autocut, DB-GPT, taichi...)
-description: 5 年 Python 开发经验，全栈工程师；擅长后端开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；擅长数据可视化；熟悉 AIGC 开发，xiaogpt 作者；参加了多个开源活动，有讲师经历。
+bio: 开源爱好者(GitHub 5.4k followers, 3w stars) / 多个千 Stars 项目作者 / 多个项目核心开发者(vscode-leetcode, stravalib, autocut, DB-GPT, taichi...)
+description: 5 年 Python 开发经验，全栈工程师；擅长后端开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；擅长数据可视化；熟悉 AIGC 开发，xiaogpt 作者；参加多个开源活动，有讲师经历。
 
 location: 辽宁大连
 email: zouzou0208@gmail.com
@@ -27,16 +27,16 @@ links:
 
 work_experience:
   - company: VMware
-    position: 数据库开发工程师(Greenplum)
+    position: 数据库开发工程师(Greenplum / PostgreSQL)
     start: "2022.3"
     end: "now"
     content: |
       
-      * 维护和开发多个 Greenplum 的 extensions
-      * pgvector 引入 Greenplum 
-      * 重构 gpdb exensions 的多个 CI/CD, 使其更容易维护
+      * 维护和开发多个 Greenplum 的 extensions: pgml, pgvector
+      * 主导 pgvector 引入 Greenplum 
       * 协助将 pgrx 和 pgml 引入 gpdb
-      * 开发多个将 ChatGPT 和 gpdb 结合的项目
+      * 重构 gpdb exensions 的多个 CI/CD, 使其更容易维护
+      * 开发多个将 ChatGPT 和 gpdb/postgres 结合的项目
 
   - company: 思科
     position: 网络自动化工程师
