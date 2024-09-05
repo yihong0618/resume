@@ -92,7 +92,7 @@ open_source:
     description: Make your own running home page
   - name: bilingual_book_maker
     repository: https://github.com/yihong0618/bilingual_book_maker
-    description:
+    description: Make bilingual epub books Using AI translate
   - name: xiaogpt
     repository: https://github.com/yihong0618/xiaogpt
     description: Play ChatGPT and other LLM with Xiaomi AI Speaker
