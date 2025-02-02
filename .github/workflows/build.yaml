@@ -37,7 +37,7 @@ jobs:
         run: |
           pdm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@main
         with:
           # Upload dist repository
           path: "./output"
