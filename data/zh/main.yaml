@@ -27,12 +27,20 @@ links:
     url: https://t.me/yihong0618
 
 work_experience:
+  - company: Xenera
+    position: AI(LLM) 项目负责人 
+    start: "2024.11"
+    end: "now"
+    content: |
+
+      * 负责公司 LLM 项目相关技术选型，开发，POC 
+
   - company: VMware
     position: 数据库开发工程师(Greenplum / PostgreSQL)
     start: "2022.3"
     end: "2024.11"
     content: |
-      
+
       * 维护和开发多个 Greenplum 的 extensions: pgml, pgvector
       * 主导 pgvector 引入 Greenplum 
       * 协助将 pgrx 和 pgml 引入 gpdb
@@ -79,6 +87,8 @@ work_experience:
 
 stack:
   - Python
+  - Rust
+  - Go
   - DevOps
   - React
   - Open-source

@@ -18,7 +18,7 @@ links:
   - icon: fa-solid fa-globe
     url: https://yihong.run
   - icon: fa-solid fa-globe
-    url: https://github.com/yihong0618/gitblog
+    url: https://blog.yihong0618.me
   - icon: fa-brands fa-github
     url: https://github.com/yihong0618
   - icon: fa-brands fa-telegram
@@ -77,6 +77,8 @@ work_experience:
 
 stack:
   - Python
+  - Rust
+  - Go
   - DevOps
   - React
   - Open-source
