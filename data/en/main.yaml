@@ -25,6 +25,16 @@ links:
     url: https://t.me/yihong0618
 
 work_experience:
+
+work_experience:
+  - company: Xenera
+    position: LLM Project Manager 
+    start: "2024.11"
+    end: "now"
+    content: |
+
+      * Responsible for technical selection, development, and POC for the company's LLM project
+
   - company: VMware
     position: Database Development Engineer(Greenplum)
     start: "2022.3"
@@ -112,6 +122,9 @@ open_source:
   - name: vscode-gcores
     repository: https://github.com/yihong0618/vscode-gcores
     description: Play Gcores in VSCode
+  - name: github-readme-stats 
+    repository: https://github.com/anuraghazra/github-readme-stats
+    description: Generate dynamic statistics for your GitHub profile
 
 education:
   - school: Shenyang University of Technology
