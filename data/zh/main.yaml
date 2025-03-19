@@ -8,7 +8,7 @@ t: # translations
 
 title: 简历
 name: 伊洪 (yihong0618)
-bio: 开源爱好者(GitHub 5.7k followers, 3w stars) / 多个千 Stars 项目作者 / 多个项目核心开发者(vscode-leetcode, stravalib, autocut, DB-GPT, Dify, taichi...)
+bio: 开源爱好者 (GitHub 5.7k followers, 3w stars) / 多个千 Stars 项目作者 / 多个项目核心开发者 (vscode-leetcode, stravalib, autocut, DB-GPT, Dify, taichi...)
 description: 5 年 Python 开发经验，全栈工程师；擅长后端开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；擅长数据可视化；熟悉 AIGC 开发，xiaogpt 作者；参加多个开源活动，有讲师经历。
 
 location: 辽宁大连
@@ -36,7 +36,7 @@ work_experience:
       * 负责公司 LLM 项目相关技术选型，开发，POC 
 
   - company: VMware
-    position: 数据库开发工程师(Greenplum / PostgreSQL)
+    position: 数据库开发工程师 (Greenplum / PostgreSQL)
     start: "2022.3"
     end: "2024.11"
     content: |
@@ -123,8 +123,8 @@ open_source:
     repository: https://github.com/yihong0618/vscode-gcores
     description: Play Gcores in VSCode
   - name: github-readme-stats 
-    repository: https://github.com/anuraghazra/github-readme-stats
-    description: Generate dynamic statistics for your GitHub profile
+    repository: https://github.com/yihong0618/github-readme-stats
+    description: generate my_github status using GitHub Actions 
 
 education:
   - school: 沈阳工业大学

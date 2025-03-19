@@ -123,8 +123,8 @@ open_source:
     repository: https://github.com/yihong0618/vscode-gcores
     description: Play Gcores in VSCode
   - name: github-readme-stats 
-    repository: https://github.com/anuraghazra/github-readme-stats
-    description: Generate dynamic statistics for your GitHub profile
+    repository: https://github.com/yihong0618/github-readme-stats
+    description: generate my_github status using GitHub Actions 
 
 education:
   - school: Shenyang University of Technology
