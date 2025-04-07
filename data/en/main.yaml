@@ -6,8 +6,8 @@ t: # translations
 
 title: Resume 
 name: Yihong (yihong0618)
-bio: Microsoft MVP, Apache OpenDAL committer, Open Source Enthusiast(GitHub 5.7k followers, 3w stars) / multiple 1k Stars repo owner / Core Developer of multiple projects(vscode-leetcode, stravalib, autocut, DB-GPT, Dify, taichi...)
-description: 5 years of Python development experience, Full Stack Engineer; Experienced in Backend Development and CI/CD Automation; Passionate about Open Source and maintaining multiple projects; Proficient in Data Visualization; Familiar with AIGC Development, author of xiaogpt; Participated in multiple Open Source events and has experience as a lecturer.
+bio: Microsoft MVP, Apache OpenDAL committer, Open Source Enthusiast(GitHub 5.9k followers, 3w stars) / multiple 1k Stars repo owner / Core Developer of multiple projects(vscode-leetcode, stravalib, autocut, DB-GPT, Dify, taichi...)
+description: 6 years of Python development experience, Full Stack Engineer; Experienced in Backend Development and CI/CD Automation; Passionate about Open Source and maintaining multiple projects; Proficient in Data Visualization; Familiar with AIGC Development, author of xiaogpt; Participated in multiple Open Source events and has experience as a lecturer.
 
 location: China, Liaoning, Dalian 
 email: zouzou0208@gmail.com
@@ -76,15 +76,6 @@ work_experience:
       * Conducted competitor and market research, summarized research reports, analyzed the market, and guided the development of multiple projects 
       * Responsible for the establishment, development, and pre-research of the Seasun Dalian VR Lab
 
-  - company: Michelin (Internship)
-    position: Mechanical Engineer
-    start: "2014.5"
-    end: "2015.2"
-    content: |
-
-      * Participated in the establishment of the mechanical spare parts warehouse in the mechanical maintenance department 
-      * Responsible for organizing various mechanical spare parts requirement `BOM`
-
 stack:
   - Python
   - Rust
@@ -132,3 +123,10 @@ education:
     end: 2015
     degree:  Master of Engineering
     major: Mechanical Engineering
+
+education:
+  - school: Liaoning University of Technology 
+    start: 2008
+    end: 2012
+    degree: Bachelor of Engineering 
+    major: Mechanical Electronic Engineering
