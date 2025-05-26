@@ -17,7 +17,8 @@ def format_size(size: int) -> str:
     elif size < 1024**2:
         return f"{size / 1024:.2f} KB"
     else:
-         return f"{size / 1024**2:.2f} MB"
+        return f"{size / 1024**2:.2f} MB"
+
 
 @lru_cache(None)
 def get_github_stars(repository: str) -> str:
