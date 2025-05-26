@@ -112,7 +112,7 @@ open_source:
     description: Make your epub books vertical or horizontal. 
   - name: vscode-gcores
     repository: https://github.com/yihong0618/vscode-gcores
-    description: Play Gcores in VSCode
+    description: Play Gcores in VS Code
   - name: github-readme-stats 
     repository: https://github.com/yihong0618/github-readme-stats
     description: generate my_github status using GitHub Actions 
