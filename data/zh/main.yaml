@@ -7,8 +7,13 @@ t: # translations
 
 title: 简历
 name: 伊洪 (yihong0618)
-bio: 微软 MVP, Apache OpenDAL committer, 开源爱好者 (GitHub 6k followers, 3w stars) / 多个千 Stars 项目作者 / 多个项目核心贡献 (vscode-leetcode, stravalib, autocut, DB-GPT, Dify, OpenDAL...)
-description: 6 年 Python 开发经验，全栈工程师；擅长后端开发、CI/CD 自动化领域；爱好开源，维护多个开源项目；擅长数据可视化，AIGC 开发，xiaogpt 作者；参加多个开源活动，有讲师经历。
+bio: |
+  * 微软 MVP, Apache OpenDAL committer, 开源爱好者 (GitHub 6k followers, 3w stars)
+  * GreptimeDB 社区布道师
+  * 多个千 Stars 项目作者 / 多个项目核心贡献 (vscode-leetcode, stravalib, autocut, DB-GPT, Dify, OpenDAL...)
+  * 6 年 Python 开发经验，全栈工程师；擅长后端开发、CI/CD 自动化领域
+  * 爱好开源，维护多个开源项目；擅长数据可视化，AIGC 开发，xiaogpt 作者
+  * 参加多个开源活动，有讲师经历
 
 location: 辽宁大连
 email: zouzou0208@gmail.com
@@ -31,7 +36,6 @@ work_experience:
     start: "2024.11"
     end: "now"
     content: |
-
       * 负责公司 LLM 项目相关技术选型，开发，POC 
 
   - company: VMware
@@ -39,7 +43,6 @@ work_experience:
     start: "2022.3"
     end: "2024.11"
     content: |
-
       * 维护和开发多个 Greenplum 的 extensions: pgml, pgvector
       * 主导 pgvector 引入 Greenplum 
       * 协助将 pgrx 和 pgml 引入 gpdb
@@ -51,7 +54,6 @@ work_experience:
     start: "2019.10"
     end: "2022.3"
     content: |
-
       * 利用 Python 开发多个网络自动化工具
       * Python Django 给网络维护人员编写维护工具 
       * 引入 AI 进行网络自动化诊断
@@ -69,7 +71,6 @@ work_experience:
     start: "2015.4"
     end: "2018.4"
     content: |
-
       * 负责《小米枪战》的数据设计, 埋点及数据分析
       * 负责《反恐行动》的数据分析，数据报告编写
       * 负责竞品和市场调研，总结调研报告，分析市场，从而指导开发立项多个项目
@@ -115,6 +116,10 @@ open_source:
   - name: github-readme-stats 
     repository: https://github.com/yihong0618/github-readme-stats
     description: generate my_github status using GitHub Actions 
+  - name: GreptimeDB
+    repository: https://github.com/GreptimeTeam/greptimedb
+  - name: Dify
+    repository: https://github.com/langgenius/dify
 
 education:
   - school: 沈阳工业大学

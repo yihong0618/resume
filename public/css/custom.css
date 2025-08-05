@@ -12,6 +12,57 @@ progress::-webkit-progress-bar {
   border-radius: 20px;
 }
 
+/* Reduce spacing between bio and work sections */
+#bio {
+  margin-bottom: 1rem !important;
+}
+
+/* Bio section bullet points styling */
+#bio ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#bio li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+#bio li:before {
+  content: "•";
+  color: #0F4C81;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
+/* Work experience bullet points styling */
+#work ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#work li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+#work li:before {
+  content: "*";
+  color: #0F4C81;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
 .text-indigo-700 { color: #0F4C81 !important; }
 .bg-indigo-700 { background-color: #0F4C81 !important; }
 .hover\:text-indigo-700:hover { color: #0F4C81 !important; }

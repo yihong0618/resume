@@ -6,8 +6,14 @@ t: # translations
 
 title: Resume 
 name: Yihong (yihong0618)
-bio: Microsoft MVP, Apache OpenDAL committer, Open Source Enthusiast(GitHub 6k followers, 3w stars) / multiple 1k Stars repo owner / Core Developer of multiple projects(vscode-leetcode, stravalib, autocut, DB-GPT, Dify, OpenDAL...)
-description: 6 years of Python development experience, Full Stack Engineer; Experienced in Backend Development and CI/CD Automation; Passionate about Open Source and maintaining multiple projects; Proficient in Data Visualization and AIGC Development, author of xiaogpt; Participated in multiple Open Source events and has experience as a lecturer.
+bio: |
+  * Microsoft MVP, Apache OpenDAL committer, Open Source Enthusiast (GitHub 6k followers, 3w stars)
+  * GreptimeDB Community Evangelist
+  * Multiple 1k Stars repo owner / Core Developer of multiple projects (stravalib, autocut, DB-GPT, Dify, OpenDAL...)
+  * 6 years of Python development experience, Full Stack Engineer; Experienced in Backend Development and CI/CD
+  * Passionate about Open Source and maintaining multiple projects; 
+  * Proficient in Data Visualization and AIGC Development, author of xiaogpt
+  * Participated in multiple Open Source events and has experience as a lecturer
 
 location: China, Liaoning, Dalian 
 email: zouzou0208@gmail.com
@@ -25,14 +31,11 @@ links:
     url: https://t.me/yihong0618
 
 work_experience:
-
-work_experience:
   - company: Xenera
     position: LLM Project Lead
     start: "2024.11"
     end: "now"
     content: |
-
       * Responsible for technical selection, development, and POC for the company's LLM project
 
   - company: VMware
@@ -40,7 +43,6 @@ work_experience:
     start: "2022.3"
     end: "2024.11"
     content: |
-      
       * Maintained and developed multiple extensions for Greenplum
       * Introduced pgvector to Greenplum
       * Refactored multiple CI/CD pipelines for gpdb extensions to make them easier to maintain
@@ -52,7 +54,6 @@ work_experience:
     start: "2019.10"
     end: "2022.3"
     content: |
-
       * Developed multiple network automation tools using Python
       * Utilized Python Django to create maintenance tools for network operators
       * Introduced AI for network automation diagnostics
@@ -70,7 +71,6 @@ work_experience:
     start: "2015.4"
     end: "2018.4"
     content: |
-
       * Responsible for data design, tracking, and analysis of "Xiaomi Gunfight" 
       * Responsible for data analysis and report writing for "MAT"
       * Conducted competitor and market research, summarized research reports, analyzed the market, and guided the development of multiple projects 
@@ -116,6 +116,11 @@ open_source:
   - name: github-readme-stats 
     repository: https://github.com/yihong0618/github-readme-stats
     description: generate my_github status using GitHub Actions 
+  - name: GreptimeDB
+    repository: https://github.com/GreptimeTeam/greptimedb
+  - name: Dify
+    repository: https://github.com/langgenius/dify
+  
 
 education:
   - school: Shenyang University of Technology

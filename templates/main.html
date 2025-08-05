@@ -26,8 +26,7 @@
         <section id="bio" class="mb-8 flex">
           <div class="grow">
             <h2 class="text-5xl text-indigo-700 font-black mb-4">{{ name }}</h2>
-            <p class="text-xl">{{ bio }}</p>
-            <p class="font-light">{{ description }}</p>
+            <div class="text-xl">{{ bio|markdown }}</div>
           </div>
           <div class="text-xl">
             {% for locale in other_locales %}
