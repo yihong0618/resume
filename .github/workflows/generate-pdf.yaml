@@ -44,13 +44,7 @@ jobs:
         run: |
           pdm run pdf
 
-      - name: Check for changes
-        id: check_changes
-        run: |
-          git diff --quiet resume_*.pdf || echo "has_changes=true" >> $GITHUB_OUTPUT
-
       - name: Commit and push PDF files
-        if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
