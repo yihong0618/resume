@@ -6,23 +6,29 @@ Requires: [PDM](https://pdm.fming.dev) and Python >= 3.10
 
 Install dependencies
 
-```
+```cli
 pdm install
 ```
 
 Build static files
 
-```
+```clis
 pdm run build
 ```
 
 Run development server
 
-```
+```cli
 pdm dev
 ```
 
 Data files are in `data/` directory, and templates are in `templates/` directory.
+
+Generate pdfs
+
+```cli
+pdm run pdf
+```
 
 ## Tech
 
