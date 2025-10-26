@@ -77,8 +77,9 @@ class TypstResumeGenerator:
             # Try to extract from links
             github_user = ""
             for link in data.get("links", []):
-                if "github.com" in link.get("url", ""):
-                    github_user = link["url"].split("/")[-1]
+                url = link.get("url", "")
+                if "github.com" in url and "gitblog" not in url:
+                    github_user = url.split("/")[-1]
                     break
         
         if github_user:
@@ -94,7 +95,7 @@ class TypstResumeGenerator:
             url = link.get("url", "")
             if "yihong.run" in url and not personal_site:
                 personal_site = url
-            elif ("blog" in url or "gitblog" in url) and not blog:
+            elif "blog" in url and "gitblog" not in url and not blog:
                 blog = url
         
         if personal_site:

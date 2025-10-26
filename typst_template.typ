@@ -69,7 +69,7 @@
 
         #if github != "" {
           contact-items.push(
-            box[#link("https://github.com/" + github)[#("github.com/" + github)]]
+            box[#link("https://github.com/" + github)[GitHub]]
           )
         }
 
