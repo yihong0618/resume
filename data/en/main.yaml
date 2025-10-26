@@ -15,7 +15,7 @@ bio: |
   * Proficient in Data Visualization and AIGC Development, author of xiaogpt
   * Participated in multiple Open Source events and has experience as a lecturer
 
-location: China, Liaoning, Dalian 
+location: Liaoning, Dalian 
 email: zouzou0208@gmail.com
 phone: (+86)13149872429
 
@@ -79,8 +79,9 @@ stack:
   - Go
   - DevOps
   - React
-  - Open-source
+  - Open-Source
   - AIGC
+  - PostgreSQL
   - Marketing Operations
   - Data Analysis
   - Data Visualization
@@ -113,10 +114,10 @@ open_source:
   - name: github-readme-stats 
     repository: https://github.com/yihong0618/github-readme-stats
     description: generate my_github status using GitHub Actions 
-  - name: GreptimeDB
-    repository: https://github.com/GreptimeTeam/greptimedb
-  - name: Dify
+  - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
+  - name: GreptimeDB(Contributor)
+    repository: https://github.com/GreptimeTeam/greptimedb
   
 
 education:

@@ -1,7 +1,7 @@
 // Typst Resume Template
 // A clean and modern resume template
-
-#let color-accent = rgb("#0066cc")
+// Use a Tailwind-like indigo accent to match the website
+#let color-accent = rgb("#4f46e5")
 #let color-text = rgb("#333333")
 #let color-gray = rgb("#666666")
 
@@ -30,11 +30,11 @@
   
   set par(justify: true)
   
-  // Header with name
+  // Header with name (larger, indigo like site)
   align(center)[
     #block(
       text(
-        size: 24pt,
+        size: 30pt,
         weight: "bold",
         fill: color-accent,
         author
@@ -42,55 +42,49 @@
     )
   ]
   
-  // Contact information
+  // Contact information (plain text links — no icons)
   align(center)[
     #block(
       inset: (top: 4pt, bottom: 8pt),
       [
         #let contact-items = ()
-        
+
         #if location != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[📍 #location]]
+            box[#text(fill: color-gray)[#location]]
           )
         }
-        
+
         #if email != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[✉️ #link("mailto:" + email)[#email]]]
+            box[#link("mailto:" + email)[#email]]
           )
         }
-        
+
         #if phone != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[📱 #phone]]
+            box[#text(fill: color-gray)[#phone]]
           )
         }
-        
+
         #if github != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[🔗 #link("https://github.com/" + github)[GitHub]]]
+            box[#link("https://github.com/" + github)[#("github.com/" + github)]]
           )
         }
-        
-        #if telegram != "" {
-          contact-items.push(
-            box[#text(fill: color-gray)[💬 #link("https://t.me/" + telegram)[Telegram]]]
-          )
-        }
-        
+
         #if personal-site != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[🌐 #link(personal-site)[Website]]]
+            box[#link(personal-site)[Website]]
           )
         }
-        
+
         #if blog != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[📝 #link(blog)[Blog]]]
+            box[#link(blog)[Blog]]
           )
         }
-        
+
         #contact-items.join(" | ")
       ]
     )
@@ -147,7 +141,7 @@
   )
 }
 
-// Project entry
+// Project entry (no icons, simple link + optional description)
 #let project(
   name: "",
   url: "",
@@ -156,7 +150,7 @@
   block(
     inset: (top: 2pt, bottom: 4pt),
     [
-      - *#link(url)[#name]*#if description != "" [ - #description]
+      - #link(url)[#name] #if description != "" [ - #description]
     ]
   )
 }
@@ -193,10 +187,10 @@
       #box[
         #for (i, skill) in skill-list.enumerate() [
           #box(
-            fill: rgb("#f0f0f0"),
-            inset: (x: 8pt, y: 4pt),
-            radius: 3pt,
-            text(fill: color-text, weight: "medium")[#skill]
+            fill: color-gray,
+            inset: (x: 6pt, y: 4pt),
+            radius: 4pt,
+            text(fill: white, weight: "medium")[#skill]
           )
           #h(4pt)
         ]

@@ -79,8 +79,9 @@ stack:
   - Go
   - DevOps
   - React
-  - Open-source
+  - Open-Source
   - AIGC
+  - PostgreSQL
   - 市场运营
   - 数据分析
   - 数据可视化
@@ -113,10 +114,10 @@ open_source:
   - name: github-readme-stats 
     repository: https://github.com/yihong0618/github-readme-stats
     description: generate my_github status using GitHub Actions 
-  - name: GreptimeDB
-    repository: https://github.com/GreptimeTeam/greptimedb
-  - name: Dify
+  - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
+  - name: GreptimeDB(Contributor)
+    repository: https://github.com/GreptimeTeam/greptimedb
 
 education:
   - school: 沈阳工业大学
