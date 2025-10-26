@@ -36,6 +36,10 @@ jobs:
       - name: Install dependencies
         run: pdm install
 
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+        
+
       - name: Generate pdf files
         run: |
           pdm run pdf
