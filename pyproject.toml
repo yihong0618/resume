@@ -17,6 +17,7 @@ license = {text = "MIT"}
 [tool.pdm.scripts]
 build = {call = "renderer:build(True)"}
 dev = {call = "renderer:livereload"}
+pdf = {call = "renderer.typst_generator:generate_pdf"}
 
 [tool.pdm.dev-dependencies]
 dev = [
