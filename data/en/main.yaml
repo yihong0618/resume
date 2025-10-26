@@ -18,7 +18,6 @@ bio: |
 location: China, Liaoning, Dalian 
 email: zouzou0208@gmail.com
 phone: (+86)13149872429
-tg: yihong0618
 
 links:
   - icon: fa-solid fa-globe
@@ -27,8 +26,6 @@ links:
     url: https://blog.yihong0618.me
   - icon: fa-brands fa-github
     url: https://github.com/yihong0618
-  - icon: fa-brands fa-telegram
-    url: https://t.me/yihong0618
 
 work_experience:
   - company: Xenera

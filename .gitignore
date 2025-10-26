@@ -7,3 +7,5 @@ output/
 *.typ
 !resume_*.typ
 !typst_template.typ
+resume_en.typ
+resume_zh.typ
