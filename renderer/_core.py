@@ -23,8 +23,19 @@ def format_size(size: int) -> str:
 @lru_cache(None)
 def get_github_stars(repository: str) -> str:
     url = repository.replace("https://github.com", "https://api.github.com/repos")
-    resp = requests.get(url)
-    stars_count = resp.json()["stargazers_count"]
+    headers = {}
+    github_token = os.environ.get("GITHUB_TOKEN")
+    if github_token:
+        headers["Authorization"] = f"token {github_token}"
+    
+    resp = requests.get(url, headers=headers)
+    data = resp.json()
+    
+    # Handle API errors gracefully
+    if "stargazers_count" not in data:
+        return "N/A"
+    
+    stars_count = data["stargazers_count"]
     if stars_count > 1000:
         return f"{stars_count / 1000:.1f}k"
     return str(stars_count)
