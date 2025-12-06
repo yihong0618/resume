@@ -30,11 +30,12 @@ links:
 
 work_experience:
   - company: Xenera
-    position: AI(LLM) 项目负责人 
+    position: AI(LLM) 项目负责人
     start: "2024.11"
     end: "now"
     content: |
-      * 负责公司 LLM 项目相关技术选型，开发，POC 
+      * 负责公司 LLM Team 团队的搭建
+      * 负责公司 LLM 项目相关技术选型，开发，POC
 
   - company: VMware
     position: 数据库开发工程师 (Greenplum / PostgreSQL)
@@ -42,7 +43,7 @@ work_experience:
     end: "2024.11"
     content: |
       * 维护和开发多个 Greenplum 的 extensions: pgml, pgvector
-      * 主导 pgvector 引入 Greenplum 
+      * 主导 pgvector 引入 Greenplum
       * 协助将 pgrx 和 pgml 引入 gpdb
       * 重构 gpdb extensions 的多个 CI/CD, 使其更容易维护
       * 开发多个将 ChatGPT 和 gpdb/postgres 结合的项目
@@ -53,7 +54,7 @@ work_experience:
     end: "2022.3"
     content: |
       * 利用 Python 开发多个网络自动化工具
-      * Python Django 给网络维护人员编写维护工具 
+      * Python Django 给网络维护人员编写维护工具
       * 引入 AI 进行网络自动化诊断
 
   - company: 东软教育科技集团
@@ -108,17 +109,19 @@ open_source:
     description: My personal blog using issues and GitHub Actions
   - name: epubhv
     repository: https://github.com/yihong0618/epubhv
-    description: Make your epub books vertical or horizontal. 
+    description: Make your epub books vertical or horizontal.
   - name: vscode-gcores
     repository: https://github.com/yihong0618/vscode-gcores
     description: Play Gcores in VS Code
-  - name: github-readme-stats 
+  - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
-    description: generate my_github status using GitHub Actions 
+    description: generate my_github status using GitHub Actions
   - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
   - name: GreptimeDB(Contributor)
     repository: https://github.com/GreptimeTeam/greptimedb
+  - name: cpython(Contributor)
+    repository: https://github.com/python/cpython
 
 education:
   - school: 沈阳工业大学
@@ -130,4 +133,4 @@ education:
     start: 2008
     end: 2012
     degree: 工程学士
-    major: 机械电子工程 
+    major: 机械电子工程
