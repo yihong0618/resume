@@ -5,18 +5,18 @@ t: # translations
   education: Education
   download_pdf: Download PDF
 
-title: Resume 
+title: Resume
 name: Yihong (yihong0618)
 bio: |
   * Microsoft MVP, Apache OpenDAL committer, Open Source Enthusiast (GitHub 6k followers, 3w stars)
   * GreptimeDB Community Evangelist
   * Multiple 1k Stars repo owner / Core Developer of multiple projects (stravalib, autocut, DB-GPT, Dify, OpenDAL...)
   * 6 years of Python development experience, Full Stack Engineer; Experienced in Backend Development and CI/CD
-  * Passionate about Open Source and maintaining multiple projects; 
+  * Passionate about Open Source and maintaining multiple projects;
   * Proficient in Data Visualization and AIGC Development, author of xiaogpt
   * Participated in multiple Open Source events and has experience as a lecturer
 
-location: Liaoning, Dalian 
+location: Liaoning, Dalian
 email: zouzou0208@gmail.com
 phone: (+86)13149872429
 
@@ -34,6 +34,7 @@ work_experience:
     start: "2024.11"
     end: "now"
     content: |
+      * Responsible for LLM Team building
       * Responsible for technical selection, development, and POC for the company's LLM project
 
   - company: VMware
@@ -44,7 +45,7 @@ work_experience:
       * Maintained and developed multiple extensions for Greenplum
       * Introduced pgvector to Greenplum
       * Refactored multiple CI/CD pipelines for gpdb extensions to make them easier to maintain
-      * Assisted in integrating pgrx and pgml with gpdb 
+      * Assisted in integrating pgrx and pgml with gpdb
       * Developed multiple poc projects combining ChatGPT and gpdb
 
   - company: Cisco
@@ -69,9 +70,9 @@ work_experience:
     start: "2015.4"
     end: "2018.4"
     content: |
-      * Responsible for data design, tracking, and analysis of "Xiaomi Gunfight" 
+      * Responsible for data design, tracking, and analysis of "Xiaomi Gunfight"
       * Responsible for data analysis and report writing for "MAT"
-      * Conducted competitor and market research, summarized research reports, analyzed the market, and guided the development of multiple projects 
+      * Conducted competitor and market research, summarized research reports, analyzed the market, and guided the development of multiple projects
       * Responsible for the establishment, development, and pre-research of the Seasun Dalian VR Lab
 
 stack:
@@ -108,18 +109,19 @@ open_source:
     description: My personal blog using issues and GitHub Actions
   - name: epubhv
     repository: https://github.com/yihong0618/epubhv
-    description: Make your epub books vertical or horizontal. 
+    description: Make your epub books vertical or horizontal.
   - name: vscode-gcores
     repository: https://github.com/yihong0618/vscode-gcores
     description: Play Gcores in VS Code
-  - name: github-readme-stats 
+  - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
-    description: generate my_github status using GitHub Actions 
+    description: generate my_github status using GitHub Actions
   - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
   - name: GreptimeDB(Contributor)
     repository: https://github.com/GreptimeTeam/greptimedb
-  
+  - name: cpython(Contributor)
+    repository: https://github.com/python/cpython
 
 education:
   - school: Shenyang University of Technology
@@ -127,8 +129,8 @@ education:
     end: 2015
     degree:  Master of Engineering
     major: Mechanical Engineering
-  - school: Liaoning University of Technology 
+  - school: Liaoning University of Technology
     start: 2008
     end: 2012
-    degree: Bachelor of Engineering 
+    degree: Bachelor of Engineering
     major: Mechanical Electronic Engineering
