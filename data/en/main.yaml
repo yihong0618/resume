@@ -116,10 +116,10 @@ open_source:
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
     description: generate my_github status using GitHub Actions
+  - name: GreptimeDB(committer)
+    repository: https://github.com/GreptimeTeam/greptimedb
   - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
-  - name: GreptimeDB(Contributor)
-    repository: https://github.com/GreptimeTeam/greptimedb
   - name: cpython(Contributor)
     repository: https://github.com/python/cpython
 
