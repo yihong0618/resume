@@ -1,9 +1,14 @@
 // Typst Resume Template
-// A clean and modern resume template
-// Use a Tailwind-like indigo accent to match the website
-#let color-accent = rgb("#4f46e5")
-#let color-text = rgb("#333333")
-#let color-gray = rgb("#666666")
+// Cold, restrained visual style aligned with website structure
+#let color-accent = rgb("#0f172a")
+#let color-heading = rgb("#111827")
+#let color-text = rgb("#1f2937")
+#let color-muted = rgb("#6b7280")
+#let color-muted-strong = rgb("#4b5563")
+#let color-muted-deep = rgb("#374151")
+#let color-divider = rgb("#cbd5e1")
+#let color-surface = rgb("#f8fafc")
+#let color-chip-bg = rgb("#e5e7eb")
 
 #let resume(
   author: "",
@@ -19,80 +24,80 @@
   set document(author: author, title: author + "'s Resume")
   set page(
     paper: "a4",
-    margin: (x: 1.8cm, y: 1.5cm),
+    margin: (x: 1.45cm, y: 1.05cm),
   )
   set text(
     font: ("New Computer Modern", "Heiti SC", "Songti SC", "STSong"),
-    size: 10.5pt,
+    size: 9.85pt,
     fill: color-text,
     lang: "zh",
   )
-  
-  set par(justify: true)
-  
-  // Header with name (larger, indigo like site)
-  align(center)[
+  set par(justify: false, leading: 0.58em)
+
+  // Header
+  align(left)[
     #block(
+      inset: (bottom: 2pt),
       text(
-        size: 30pt,
+        size: 23pt,
         weight: "bold",
-        fill: color-accent,
+        fill: color-heading,
         author
       )
     )
   ]
-  
-  // Contact information (plain text links — no icons)
-  align(center)[
+
+  // Contact information (plain text links)
+  align(left)[
     #block(
-      inset: (top: 4pt, bottom: 8pt),
+      inset: (top: 2pt, bottom: 5pt),
       [
         #let contact-items = ()
 
         #if location != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[#location]]
+            box[#text(size: 8.4pt, fill: color-muted)[#location]]
           )
         }
 
         #if email != "" {
           contact-items.push(
-            box[#link("mailto:" + email)[#email]]
+            box[#text(size: 8.4pt, fill: color-muted)[#link("mailto:" + email)[#email]]]
           )
         }
 
         #if phone != "" {
           contact-items.push(
-            box[#text(fill: color-gray)[#phone]]
+            box[#text(size: 8.4pt, fill: color-muted)[#phone]]
           )
         }
 
         #if github != "" {
           contact-items.push(
-            box[#link("https://github.com/" + github)[GitHub]]
+            box[#text(size: 8.4pt, fill: color-muted)[#link("https://github.com/" + github)[github.com/#github]]]
           )
         }
 
         #if personal-site != "" {
           contact-items.push(
-            box[#link(personal-site)[Website]]
+            box[#text(size: 8.4pt, fill: color-muted)[#link(personal-site)[Website]]]
           )
         }
 
         #if blog != "" {
           contact-items.push(
-            box[#link(blog)[Blog]]
+            box[#text(size: 8.4pt, fill: color-muted)[#link(blog)[Blog]]]
           )
         }
 
-        #contact-items.join(" | ")
+        #contact-items.join(" / ")
       ]
     )
   ]
-  
+
   // Horizontal line
-  line(length: 100%, stroke: 0.5pt + color-accent)
-  
+  line(length: 100%, stroke: 0.6pt + color-accent)
+
   // Body
   body
 }
@@ -100,16 +105,16 @@
 // Section heading
 #let section-heading(title) = {
   block(
-    inset: (top: 8pt, bottom: 4pt),
+    inset: (top: 8pt, bottom: 2.4pt),
     text(
-      size: 14pt,
+      size: 10.8pt,
       weight: "bold",
       fill: color-accent,
       title
     )
   )
-  line(length: 100%, stroke: 0.5pt + color-gray)
-  v(4pt)
+  line(length: 100%, stroke: 0.4pt + color-divider)
+  v(2pt)
 }
 
 // Update heading style
@@ -123,34 +128,65 @@
   body,
 ) = {
   block(
-    inset: (top: 4pt, bottom: 6pt),
+    inset: (top: 1.3pt, bottom: 2.6pt),
     [
       #grid(
         columns: (1fr, auto),
+        column-gutter: 6pt,
         [
-          #text(weight: "bold", size: 11pt)[#title] \
-          #text(fill: color-gray, style: "italic")[#location]
+          #text(weight: "semibold", size: 10.3pt, fill: color-heading)[#title] \
+          #text(size: 8.4pt, fill: color-muted, style: "italic")[#location]
         ],
         align(right)[
-          #text(fill: color-gray)[#date]
+          #text(size: 8.2pt, fill: color-muted)[#date]
         ]
       )
-      #v(2pt)
+      #v(0.8pt)
       #body
     ]
   )
 }
 
-// Project entry (no icons, simple link + optional description)
+// Project entry with stars in compact list layout
 #let project(
   name: "",
   url: "",
+  repo_label: "",
+  stars: "",
   description: "",
 ) = {
   block(
-    inset: (top: 2pt, bottom: 4pt),
+    breakable: false,
+    inset: (top: 1.8pt, bottom: 2.4pt),
     [
-      - #link(url)[#name] #if description != "" [ - #description]
+      #box(
+        fill: color-surface,
+        stroke: 0.35pt + color-divider,
+        inset: (x: 7pt, y: 5pt),
+        radius: 2.5pt,
+        [
+          #grid(
+            columns: (1fr, auto),
+            column-gutter: 6pt,
+            [
+              #text(weight: "semibold", size: 10pt, fill: color-heading)[#link(url)[#name]]
+            ],
+            [
+              #if stars != "" and stars != "N/A" [
+                #text(size: 8.6pt, fill: color-muted-deep)[stars #stars]
+              ]
+            ],
+          )
+          #if repo_label != "" [
+            #v(0.8pt)
+            #link(url)[#text(size: 8.3pt, fill: color-muted-deep)[github.com/#repo_label]]
+          ]
+          #if description != "" [
+            #v(1.2pt)
+            #text(size: 8.9pt, fill: color-text)[#description]
+          ]
+        ]
+      )
     ]
   )
 }
@@ -163,16 +199,17 @@
   date: "",
 ) = {
   block(
-    inset: (top: 4pt, bottom: 6pt),
+    inset: (top: 1.4pt, bottom: 2.4pt),
     [
       #grid(
         columns: (1fr, auto),
+        column-gutter: 6pt,
         [
-          #text(weight: "bold", size: 11pt)[#institution] \
-          #text(fill: color-gray)[#degree, #major]
+          #text(weight: "semibold", size: 10.3pt, fill: color-heading)[#institution] \
+          #text(size: 8.4pt, fill: color-muted)[#degree, #major]
         ],
         align(right)[
-          #text(fill: color-gray)[#date]
+          #text(size: 8.2pt, fill: color-muted)[#date]
         ]
       )
     ]
@@ -182,17 +219,17 @@
 // Skills section
 #let skills(skill-list) = {
   block(
-    inset: (top: 2pt, bottom: 4pt),
+    inset: (top: 1.4pt, bottom: 2.6pt),
     [
       #box[
         #for (i, skill) in skill-list.enumerate() [
           #box(
-            fill: color-gray,
-            inset: (x: 6pt, y: 4pt),
-            radius: 4pt,
-            text(fill: white, weight: "medium")[#skill]
+            fill: color-chip-bg,
+            inset: (x: 5pt, y: 2.4pt),
+            radius: 2pt,
+            text(size: 8.4pt, fill: color-heading, weight: "medium")[#skill]
           )
-          #h(4pt)
+          #h(2.4pt)
         ]
       ]
     ]

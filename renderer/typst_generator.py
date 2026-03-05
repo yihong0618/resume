@@ -1,9 +1,39 @@
 """Generate Typst resume files from YAML data."""
+import os
+import shutil
 import subprocess
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict
 
+import requests
 import yaml
+
+
+@lru_cache(None)
+def get_github_stars(repository: str) -> str:
+    """Fetch GitHub stars with graceful fallback."""
+    if not repository.startswith("https://github.com/"):
+        return ""
+
+    url = repository.replace("https://github.com", "https://api.github.com/repos")
+    headers = {}
+    github_token = os.environ.get("GITHUB_TOKEN")
+    if github_token:
+        headers["Authorization"] = f"token {github_token}"
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        data = resp.json()
+    except Exception:
+        return ""
+
+    stars_count = data.get("stargazers_count")
+    if stars_count is None:
+        return ""
+    if stars_count > 1000:
+        return f"{stars_count / 1000:.1f}k"
+    return str(stars_count)
 
 
 class TypstResumeGenerator:
@@ -13,12 +43,12 @@ class TypstResumeGenerator:
         self.root = Path(__file__).absolute().parent.parent
         self.data_dir = self.root / "data"
         self.template_file = self.root / "typst_template.typ"
+        self.typst_bin = shutil.which("typst")
     
     def _escape_typst(self, text: str) -> str:
         """Escape special characters for Typst."""
-        # Typst uses # for functions, so we don't need to escape much
-        # Just ensure newlines and special formatting is preserved
-        return text
+        # Escape characters used in Typst string literals.
+        return text.replace("\\", "\\\\").replace('"', '\\"')
     
     def _format_bio(self, bio: str) -> str:
         """Format bio bullets for Typst."""
@@ -60,16 +90,20 @@ class TypstResumeGenerator:
         contact_params = []
         
         if data.get("name"):
-            contact_params.append(f'  author: "{data["name"]}",')
+            author = self._escape_typst(str(data["name"]))
+            contact_params.append(f'  author: "{author}",')
         
         if data.get("location"):
-            contact_params.append(f'  location: "{data["location"]}",')
+            location = self._escape_typst(str(data["location"]))
+            contact_params.append(f'  location: "{location}",')
         
         if data.get("email"):
-            contact_params.append(f'  email: "{data["email"]}",')
+            email = self._escape_typst(str(data["email"]))
+            contact_params.append(f'  email: "{email}",')
         
         if data.get("phone"):
-            contact_params.append(f'  phone: "{data["phone"]}",')
+            phone = self._escape_typst(str(data["phone"]))
+            contact_params.append(f'  phone: "{phone}",')
         
         if data.get("github"):
             github_user = data["github"]
@@ -83,10 +117,12 @@ class TypstResumeGenerator:
                     break
         
         if github_user:
+            github_user = self._escape_typst(github_user)
             contact_params.append(f'  github: "{github_user}",')
         
         if data.get("tg"):
-            contact_params.append(f'  telegram: "{data["tg"]}",')
+            telegram = self._escape_typst(str(data["tg"]))
+            contact_params.append(f'  telegram: "{telegram}",')
         
         # Extract personal site and blog from links
         personal_site = ""
@@ -99,8 +135,10 @@ class TypstResumeGenerator:
                 blog = url
         
         if personal_site:
+            personal_site = self._escape_typst(personal_site)
             contact_params.append(f'  personal-site: "{personal_site}",')
         if blog:
+            blog = self._escape_typst(blog)
             contact_params.append(f'  blog: "{blog}",')
         
         return "\n".join(contact_params)
@@ -118,13 +156,13 @@ class TypstResumeGenerator:
         
         work_entries = []
         for work in data.get("work_experience", []):
-            company = work.get("company", "")
-            position = work.get("position", "")
+            company = self._escape_typst(str(work.get("company", "")))
+            position = self._escape_typst(str(work.get("position", "")))
             start = work.get("start", "")
             end = work.get("end", "")
             if end.lower() == "now":
                 end = "至今" if lang == "zh" else "Present"
-            date = f"{start} - {end}"
+            date = self._escape_typst(f"{start} - {end}")
             content = self._format_work_content(work.get("content", ""))
             
             entry = f'''#work(
@@ -155,13 +193,35 @@ class TypstResumeGenerator:
         
         project_entries = []
         for project in data.get("open_source", []):
-            name = project.get("name", "")
-            url = project.get("repository", "")
-            description = project.get("description", "")
+            name = self._escape_typst(str(project.get("name", "")))
+            url = str(project.get("repository", ""))
+            escaped_url = self._escape_typst(url)
+            description = self._escape_typst(str(project.get("description", "")))
+
+            repo_label = ""
+            if "github.com/" in url:
+                repo_label = url.split("github.com/", 1)[-1]
+            elif url:
+                repo_label = (
+                    url.replace("https://", "")
+                    .replace("http://", "")
+                    .rstrip("/")
+                )
+            repo_label = self._escape_typst(repo_label)
+
+            stars = ""
+            if "github.com/" in url:
+                try:
+                    stars = get_github_stars(url)
+                except Exception:
+                    stars = ""
+            stars = self._escape_typst(stars)
             
             entry = f'''#project(
   name: "{name}",
-  url: "{url}",
+  url: "{escaped_url}",
+  repo_label: "{repo_label}",
+  stars: "{stars}",
   description: "{description}",
 )'''
             project_entries.append(entry)
@@ -175,12 +235,12 @@ class TypstResumeGenerator:
         
         edu_entries = []
         for edu in data.get("education", []):
-            school = edu.get("school", "")
-            major = edu.get("major", "")
-            degree = edu.get("degree", "")
+            school = self._escape_typst(str(edu.get("school", "")))
+            major = self._escape_typst(str(edu.get("major", "")))
+            degree = self._escape_typst(str(edu.get("degree", "")))
             start = edu.get("start", "")
             end = edu.get("end", "")
-            date = f"{start} - {end}"
+            date = self._escape_typst(f"{start} - {end}")
             
             entry = f'''#education(
   institution: "{school}",
@@ -204,8 +264,9 @@ class TypstResumeGenerator:
         bio_section = self._generate_bio_section(data, locale)
         work_section = self._generate_work_section(data, locale)
         skills_section = self._generate_skills_section(data, locale)
-        opensource_section = self._generate_opensource_section(data, locale)
         education_section = self._generate_education_section(data, locale)
+        opensource_section = self._generate_opensource_section(data, locale)
+        opensource_pagebreak = "#pagebreak()\n\n" if locale == "zh" else ""
         
         # Combine into full document
         typst_content = f'''#import "typst_template.typ": *
@@ -220,9 +281,9 @@ class TypstResumeGenerator:
 
 {skills_section}
 
-{opensource_section}
-
 {education_section}
+
+{opensource_pagebreak}{opensource_section}
 '''
         
         # Write to file
@@ -236,9 +297,16 @@ class TypstResumeGenerator:
     def compile_to_pdf(self, typst_file: Path) -> Path:
         """Compile a Typst file to PDF."""
         print(f"\x1b[32mCompiling\x1b[0m {typst_file.name} to PDF...")
-        
+
+        if not self.typst_bin:
+            raise RuntimeError(
+                "Typst CLI was not found in PATH. Install it first, for example:\n"
+                "  macOS (Homebrew): brew install typst\n"
+                "  or visit: https://github.com/typst/typst#installation"
+            )
+
         result = subprocess.run(
-            ["typst", "compile", str(typst_file)],
+            [self.typst_bin, "compile", str(typst_file)],
             capture_output=True,
             text=True,
         )

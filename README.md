@@ -1,6 +1,6 @@
 # Resume of yihong0618(fork from [frostming/resume](https://github.com/frostming/resume))
 
-Requires: [PDM](https://pdm.fming.dev) and Python >= 3.10
+Requires: [PDM](https://pdm.fming.dev), Python >= 3.10, and [Typst CLI](https://github.com/typst/typst#installation)
 
 ## Usage
 
