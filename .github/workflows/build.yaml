@@ -9,7 +9,7 @@ on:
     - cron: "0 0 * * 0"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,14 +19,57 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  generate-pdf:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install PDM
+        uses: pdm-project/setup-pdm@v4
+        with:
+          python-version: "3.10"
+          cache: true
+
+      - name: Install dependencies
+        run: pdm install
+
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Generate PDF files
+        run: pdm run pdf
+
+      - name: Commit and push PDF files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add resume_zh.pdf resume_en.pdf
+          if git diff --cached --quiet; then
+            echo "PDF files are already up to date."
+          else
+            git commit -m "chore: auto-generate PDF resumes [skip ci]"
+            git push
+          fi
+
   build_and_deploy:
+    needs: generate-pdf
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pdm-project/setup-pdm@v3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: pdm-project/setup-pdm@v4
         with:
           python-version: "3.10"
           cache: true
@@ -36,8 +79,8 @@ jobs:
       - name: Run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pdm run build
+        run: pdm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@main
         with:

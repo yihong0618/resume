@@ -118,9 +118,6 @@ open_source:
   - name: epubhv
     repository: https://github.com/yihong0618/epubhv
     description: Convert EPUB books between vertical and horizontal layouts
-  - name: vscode-gcores
-    repository: https://github.com/yihong0618/vscode-gcores
-    description: Listen to Gcores in VS Code
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
     description: Generate GitHub profile stats with GitHub Actions

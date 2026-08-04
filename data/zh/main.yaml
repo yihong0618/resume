@@ -117,9 +117,6 @@ open_source:
   - name: epubhv
     repository: https://github.com/yihong0618/epubhv
     description: 转换 EPUB 电子书的横排与竖排版式
-  - name: vscode-gcores
-    repository: https://github.com/yihong0618/vscode-gcores
-    description: 在 VS Code 中收听机核节目
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
     description: 使用 GitHub Actions 生成 GitHub 个人数据统计
