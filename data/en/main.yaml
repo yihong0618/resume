@@ -2,22 +2,22 @@ t: # translations
   work_experience: Work Experience
   open_source: Open Source Projects
   stack: Technical Stack
+  honors: Honors
   education: Education
   download_pdf: Download PDF
 
 title: Resume
 name: Yihong (yihong0618)
 bio: |
-  * Microsoft MVP, Apache OpenDAL committer, Open Source Enthusiast (GitHub 6k followers, 3w stars)
-  * GreptimeDB/OceanBase Community Evangelist
-  * Multiple 1k Stars repo owner / Core Developer of multiple projects (stravalib, autocut, DB-GPT, Dify, OpenDAL...)
-  * 6 years of Python development experience, Full Stack Engineer; Experienced in Backend Development and CI/CD
-  * Experience of LLM project from zero to one.
-  * Passionate about Open Source and maintaining multiple projects;
-  * Proficient in Data Visualization and AIGC Development, author of xiaogpt
-  * Participated in multiple Open Source events and has experience as a lecturer
+  * Microsoft MVP and Apache OpenDAL committer; open-source developer with 6K GitHub followers and 30K+ stars across projects
+  * Community Evangelist for GreptimeDB and OceanBase
+  * Creator of multiple projects with 1K+ stars and core contributor to vscode-leetcode, stravalib, autocut, DB-GPT, Dify, OpenDAL, and more
+  * Full-stack engineer with 7 years of Python experience, specializing in backend development and CI/CD automation
+  * Experience building LLM products from zero to one
+  * Maintainer of multiple open-source projects, with expertise in data visualization and generative AI; creator of xiaogpt
+  * Speaker and instructor at multiple open-source events
 
-location: Liaoning, Dalian
+location: Dalian, Liaoning
 email: zouzou0208@gmail.com
 phone: (+86)13149872429
 
@@ -30,51 +30,58 @@ links:
     url: https://github.com/yihong0618
 
 work_experience:
-  - company: Xenera
-    position: LLM Project Lead
-    start: "2024.11"
+  - company: NVIDIA
+    position: Developer Relations
+    start: "2026.08"
     end: "now"
     content: |
-      * Responsible for LLM Team building
-      * Responsible for technical selection, development, and POC for the company's LLM project
+      * Lead developer relations for cuVS, cuDF, Sirius, and other projects
+
+  - company: Xenera
+    position: AI/LLM Project Lead
+    start: "2024.11"
+    end: "2026.07"
+    content: |
+      * Built and led the company's LLM team
+      * Led technology selection, development, and proof-of-concept delivery for the company's LLM initiatives
 
   - company: VMware
-    position: Database Development Engineer(Greenplum)
+    position: Database Development Engineer (Greenplum / PostgreSQL)
     start: "2022.3"
     end: "2024.11"
     content: |
-      * Maintained and developed multiple extensions for Greenplum
-      * Introduced pgvector to Greenplum
-      * Refactored multiple CI/CD pipelines for gpdb extensions to make them easier to maintain
-      * Assisted in integrating pgrx and pgml with gpdb
-      * Developed multiple poc projects combining ChatGPT and gpdb
+      * Developed and maintained multiple Greenplum extensions, including pgml and pgvector
+      * Led the adoption of pgvector in Greenplum
+      * Helped bring pgrx and pgml to Greenplum
+      * Redesigned CI/CD pipelines for Greenplum extensions to improve maintainability
+      * Built multiple proof-of-concept projects integrating ChatGPT with Greenplum and PostgreSQL
 
   - company: Cisco
     position: Network Automation Engineer
     start: "2019.10"
     end: "2022.3"
     content: |
-      * Developed multiple network automation tools using Python
-      * Utilized Python Django to create maintenance tools for network operators
-      * Introduced AI for network automation diagnostics
+      * Built multiple network automation tools in Python
+      * Developed Django-based maintenance tools for network operations teams
+      * Introduced AI-assisted diagnostics for network automation
 
   - company: Neusoft Education Technology Group
-    position: Software Developer / Trainer(teacher)
+    position: Software Developer / Instructor
     start: "2018.9"
     end: "2019.10"
     content: |
-      * Responsible for developing educational software (project training, project practice)
-      * Responsible for Python training both on and off campus
+      * Developed educational software for project-based training and hands-on coursework
+      * Delivered Python training programs both on and off campus
 
-  - company: Kingsoft(seasun)
-    position: Data Analyst / Game Operation
+  - company: Kingsoft (Seasun Games)
+    position: Data Analyst / Game Operations
     start: "2015.4"
     end: "2018.4"
     content: |
-      * Responsible for data design, tracking, and analysis of "Xiaomi Gunfight"
-      * Responsible for data analysis and report writing for "MAT"
-      * Conducted competitor and market research, summarized research reports, analyzed the market, and guided the development of multiple projects
-      * Responsible for the establishment, development, and pre-research of the Seasun Dalian VR Lab
+      * Designed analytics and event tracking and performed data analysis for "Xiaomi Gunfight"
+      * Conducted data analysis and produced reports for "MAT"
+      * Conducted competitor and market research to inform the planning and development of multiple projects
+      * Helped establish and develop Seasun's Dalian VR Lab and conducted early-stage game research
 
 stack:
   - Python
@@ -82,8 +89,8 @@ stack:
   - Go
   - DevOps
   - React
-  - Open-Source
-  - AIGC
+  - Open Source
+  - Generative AI
   - PostgreSQL
   - Marketing Operations
   - Data Analysis
@@ -92,31 +99,31 @@ stack:
 open_source:
   - name: running_page
     repository: https://github.com/yihong0618/running_page
-    description: Make your own running home page
+    description: Build your own running homepage
   - name: bilingual_book_maker
     repository: https://github.com/yihong0618/bilingual_book_maker
-    description: Make bilingual epub books Using AI translate
+    description: Create bilingual EPUB books with AI-powered translation
   - name: xiaogpt
     repository: https://github.com/yihong0618/xiaogpt
-    description: Play ChatGPT and other LLM with Xiaomi AI Speaker
+    description: Bring ChatGPT and other LLMs to Xiaomi AI Speakers
   - name: Kindle_download_helper
     repository: https://github.com/yihong0618/Kindle_download_helper
-    description: Download all your kindle books script.
+    description: Download all your Kindle books
   - name: GitHubPoster
     repository: https://github.com/yihong0618/GitHubPoster
-    description: Make everything a GitHub svg poster and Skyline!
+    description: Turn anything into a GitHub-style SVG poster or skyline
   - name: gitblog
     repository: https://github.com/yihong0618/gitblog
-    description: My personal blog using issues and GitHub Actions
+    description: A personal blog powered by GitHub Issues and Actions
   - name: epubhv
     repository: https://github.com/yihong0618/epubhv
-    description: Make your epub books vertical or horizontal.
+    description: Convert EPUB books between vertical and horizontal layouts
   - name: vscode-gcores
     repository: https://github.com/yihong0618/vscode-gcores
-    description: Play Gcores in VS Code
+    description: Listen to Gcores in VS Code
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
-    description: generate my_github status using GitHub Actions
+    description: Generate GitHub profile stats with GitHub Actions
   - name: GreptimeDB(committer)
     repository: https://github.com/GreptimeTeam/greptimedb
   - name: Dify(Contributor)
@@ -128,10 +135,10 @@ education:
   - school: Shenyang University of Technology
     start: 2012
     end: 2015
-    degree:  Master of Engineering
+    degree: Master of Engineering
     major: Mechanical Engineering
   - school: Liaoning University of Technology
     start: 2008
     end: 2012
     degree: Bachelor of Engineering
-    major: Mechanical Electronic Engineering
+    major: Mechatronic Engineering

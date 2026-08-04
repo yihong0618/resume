@@ -9,13 +9,13 @@ t: # translations
 title: 简历
 name: 伊洪 (yihong0618)
 bio: |
-  * 微软 MVP, Apache OpenDAL committer, 开源爱好者 (GitHub 6k followers, 3w stars)
-  * GreptimeDB/OceanBase 社区布道师
-  * 多个千 Stars 项目作者 / 多个项目核心贡献 (vscode-leetcode, stravalib, autocut, DB-GPT, Dify, OpenDAL...)
-  * 6 年 Python 开发经验，全栈工程师；擅长后端开发、CI/CD 自动化领域
-  * 有 LLM 项目从 0 到 1 开发经验
-  * 爱好开源，维护多个开源项目；擅长数据可视化，AIGC 开发，xiaogpt 作者
-  * 参加多个开源活动，有讲师经历
+  * 微软 MVP、Apache OpenDAL Committer；开源开发者，GitHub 拥有 6K 关注者，项目累计获得 3 万+ Stars
+  * GreptimeDB、OceanBase 社区布道师
+  * 多个千星开源项目作者，并深度参与 vscode-leetcode、stravalib、autocut、DB-GPT、Dify、OpenDAL 等项目
+  * 全栈工程师，拥有 7 年 Python 开发经验，专注后端开发与 CI/CD 自动化
+  * 具备 LLM 项目从 0 到 1 的完整开发经验
+  * 维护多个开源项目，擅长数据可视化与生成式 AI 应用开发；xiaogpt 作者
+  * 多次参与开源社区活动，并拥有讲师经历
 
 location: 辽宁大连
 email: zouzou0208@gmail.com
@@ -25,56 +25,62 @@ links:
   - icon: fa-solid fa-globe
     url: https://yihong.run
   - icon: fa-solid fa-globe
-    url: https://github.com/yihong0618/gitblog
+    url: https://blog.yihong0618.me
   - icon: fa-brands fa-github
     url: https://github.com/yihong0618
 
 work_experience:
-  - company: Xenera
-    position: AI(LLM) 项目负责人
-    start: "2024.11"
+  - company: NVIDIA
+    position: 开发者关系
+    start: "2026.08"
     end: "now"
     content: |
-      * 负责公司 LLM Team 团队的搭建
-      * 负责公司 LLM 项目相关技术选型，开发，POC
+      * 负责 cuVS、cuDF、Sirius 等项目的开发者关系工作
+  - company: Xenera
+    position: AI/LLM 项目负责人
+    start: "2024.11"
+    end: "2026.07"
+    content: |
+      * 组建并带领公司 LLM 团队
+      * 主导公司 LLM 项目的技术选型、研发及概念验证（POC）
 
   - company: VMware
-    position: 数据库开发工程师 (Greenplum / PostgreSQL)
+    position: 数据库开发工程师（Greenplum / PostgreSQL）
     start: "2022.3"
     end: "2024.11"
     content: |
-      * 维护和开发多个 Greenplum 的 extensions: pgml, pgvector
-      * 主导 pgvector 引入 Greenplum
-      * 协助将 pgrx 和 pgml 引入 gpdb
-      * 重构 gpdb extensions 的多个 CI/CD, 使其更容易维护
-      * 开发多个将 ChatGPT 和 gpdb/postgres 结合的项目
+      * 开发并维护多个 Greenplum 扩展，包括 pgml、pgvector
+      * 主导将 pgvector 引入 Greenplum
+      * 协助将 pgrx 和 pgml 引入 Greenplum
+      * 重构多个 Greenplum 扩展的 CI/CD 流程，提升可维护性
+      * 开发多个融合 ChatGPT 与 Greenplum/PostgreSQL 的概念验证项目
 
   - company: 思科
     position: 网络自动化工程师
     start: "2019.10"
     end: "2022.3"
     content: |
-      * 利用 Python 开发多个网络自动化工具
-      * Python Django 给网络维护人员编写维护工具
-      * 引入 AI 进行网络自动化诊断
+      * 使用 Python 开发多个网络自动化工具
+      * 基于 Django 为网络运维团队开发维护工具
+      * 将 AI 辅助诊断引入网络自动化场景
 
   - company: 东软教育科技集团
     position: 软件开发 / 讲师
     start: "2018.9"
     end: "2019.10"
     content: |
-      * 负责开发教学软件（项目实训，项目实践）
-      * 负责校外校内的 Python 培训工作
+      * 开发用于项目实训与实践教学的软件
+      * 面向校内外学员开展 Python 培训
 
   - company: 金山（西山居）
     position: 数据分析师 / 游戏运营
     start: "2015.4"
     end: "2018.4"
     content: |
-      * 负责《小米枪战》的数据设计, 埋点及数据分析
-      * 负责《反恐行动》的数据分析，数据报告编写
-      * 负责竞品和市场调研，总结调研报告，分析市场，从而指导开发立项多个项目
-      * 负责西山居大连 VR 实验室的建立，开发，及游戏预研。
+      * 负责《小米枪战》的数据体系设计、埋点及数据分析
+      * 负责《反恐行动》的数据分析与报告撰写
+      * 开展竞品及市场调研，为多个项目的规划、立项与研发提供决策支持
+      * 负责西山居大连 VR 实验室的筹建、开发及游戏前期研究
 
 stack:
   - Python
@@ -82,8 +88,8 @@ stack:
   - Go
   - DevOps
   - React
-  - Open-Source
-  - AIGC
+  - 开源
+  - 生成式 AI
   - PostgreSQL
   - 市场运营
   - 数据分析
@@ -92,31 +98,31 @@ stack:
 open_source:
   - name: running_page
     repository: https://github.com/yihong0618/running_page
-    description: Make your own running home page
+    description: 打造个人专属跑步主页
   - name: bilingual_book_maker
     repository: https://github.com/yihong0618/bilingual_book_maker
-    description: Make bilingual epub books Using AI translate
+    description: 使用 AI 翻译制作双语 EPUB 电子书
   - name: xiaogpt
     repository: https://github.com/yihong0618/xiaogpt
-    description: Play ChatGPT and other LLM with Xiaomi AI Speaker
+    description: 将 ChatGPT 等大语言模型接入小米 AI 音箱
   - name: Kindle_download_helper
     repository: https://github.com/yihong0618/Kindle_download_helper
-    description: Download all your kindle books script.
+    description: 批量下载个人 Kindle 电子书
   - name: GitHubPoster
     repository: https://github.com/yihong0618/GitHubPoster
-    description: Make everything a GitHub svg poster and Skyline!
+    description: 将各类数据生成 GitHub 风格的 SVG 海报与 Skyline
   - name: gitblog
     repository: https://github.com/yihong0618/gitblog
-    description: My personal blog using issues and GitHub Actions
+    description: 基于 GitHub Issues 与 GitHub Actions 搭建的个人博客
   - name: epubhv
     repository: https://github.com/yihong0618/epubhv
-    description: Make your epub books vertical or horizontal.
+    description: 转换 EPUB 电子书的横排与竖排版式
   - name: vscode-gcores
     repository: https://github.com/yihong0618/vscode-gcores
-    description: Play Gcores in VS Code
+    description: 在 VS Code 中收听机核节目
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
-    description: generate my_github status using GitHub Actions
+    description: 使用 GitHub Actions 生成 GitHub 个人数据统计
   - name: GreptimeDB(committer)
     repository: https://github.com/GreptimeTeam/greptimedb
   - name: Dify(Contributor)
