@@ -140,6 +140,11 @@ class TypstResumeGenerator:
         if blog:
             blog = self._escape_typst(blog)
             contact_params.append(f'  blog: "{blog}",')
+
+        # English copy wraps more often, so use the template's compact text
+        # rhythm to keep Education with the rest of the first-page profile.
+        if lang == "en":
+            contact_params.append("  compact: true,")
         
         return "\n".join(contact_params)
     

@@ -123,6 +123,8 @@ open_source:
     description: Generate GitHub profile stats with GitHub Actions
   - name: GreptimeDB(committer)
     repository: https://github.com/GreptimeTeam/greptimedb
+  - name: DB-GPT(committer)
+    repository: https://github.com/eosphoros-ai/DB-GPT
   - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
   - name: cpython(Contributor)

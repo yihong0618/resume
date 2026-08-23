@@ -19,6 +19,7 @@
   telegram: "",
   personal-site: "",
   blog: "",
+  compact: false,
   body,
 ) = {
   set document(author: author, title: author + "'s Resume")
@@ -28,11 +29,14 @@
   )
   set text(
     font: ("New Computer Modern", "Heiti SC", "Songti SC", "STSong"),
-    size: 9.85pt,
+    size: if compact { 9.65pt } else { 9.85pt },
     fill: color-text,
     lang: "zh",
   )
-  set par(justify: false, leading: 0.58em)
+  set par(
+    justify: false,
+    leading: if compact { 0.54em } else { 0.58em },
+  )
 
   // Header
   align(left)[

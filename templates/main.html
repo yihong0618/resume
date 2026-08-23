@@ -9,10 +9,10 @@
       content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <meta name="description" content="{{ title }} | {{ name }}" />
-    <!-- refresh everytime -->
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
+    <meta name="theme-color" content="#f1f3f5" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
     <script
       src="https://kit.fontawesome.com/4810f03ea3.js"
       crossorigin="anonymous"
@@ -21,153 +21,139 @@
     <link href="../css/custom.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="lg:container mx-auto p-6 gap-6 md:flex">
-      <div class="basis-3/4">
-        <section id="bio" class="mb-8 flex">
-          <div class="grow">
-            <h2 class="text-5xl text-indigo-700 font-black mb-4">{{ name }}</h2>
-            <div class="text-xl">{{ bio|markdown }}</div>
-          </div>
-          <div class="text-xl whitespace-nowrap">
+    <main class="resume-page lg:container mx-auto p-6">
+      <header class="resume-header">
+        <div class="identity-row flex justify-between">
+          <h1>{{ name }}</h1>
+          <nav class="resume-actions" aria-label="Resume actions">
             {% for locale in other_locales %}
-            <a
-              href="{{ get_url('/' + locale) }}"
-              class="uppercase p-2 hover:rounded hover:bg-indigo-200 duration-300"
+            <a href="{{ get_url('/' + locale) }}" class="uppercase"
               >{{ locale }}</a
             >
-            {% endfor %}<a
+            {% endfor %}
+            <a
               href="https://github.com/yihong0618/resume/raw/main/resume_{{ lang }}.pdf"
-              class="p-2 hover:rounded hover:bg-indigo-200 duration-300"
               download
               target="_blank"
               title="{{ t.download_pdf }}"
-            ><i class="fa-solid fa-download"></i></a>
-          </div>
-        </section>
-        <section id="work">
-          <h2
-            class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
-          >
-            {{ t.work_experience }}
-          </h2>
-          {% for job in work_experience %}
-          <div class="p-4 mb-2 rounded border-solid border border-gray-300">
-            <div class="flex justify-between items-center mb-2">
-              <h2 class="text-xl font-bold">
-                {{ job.position }}, {{ job.company }}
-              </h2>
-              <h3 class="text-gray-400">{{ job.start }} - {{ job.end }}</h3>
-            </div>
-            <div>{{ job.content|markdown }}</div>
-          </div>
-          {% endfor %}
-        </section>
-        <section id="education">
-          <h2
-            class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
-          >
-            {{ t.education }}
-          </h2>
-          {% for item in education %}
-          <div class="p-4 mb-2 rounded border-solid border border-gray-300">
-            <div class="flex justify-between items-center mb-2">
-              <h2 class="text-xl font-bold">{{ item.school }}</h2>
-              <h3 class="text-gray-400">{{ item.start }} - {{ item.end }}</h3>
-            </div>
-            <p>{{ item.major }} / {{ item.degree }}</p>
-            <div>{{ item.content }}</div>
-          </div>
-          {% endfor %}
-        </section>
-      </div>
-      <div class="basis-1/4">
-        <section id="contact" class="mb-6">
-          <div class="font-light text-xl mb-4">
-            <p><i class="fa-solid fa-location-dot"></i> {{ location }}</p>
-            <p>
-              <a
-                class="hover:text-indigo-700 hover:underline"
-                href="mailto:{{email}}"
-                target="_blank"
-                ><i class="fa-solid fa-envelope"></i> {{ email }}</a
-              >
-            </p>
+              aria-label="{{ t.download_pdf }}"
+              ><i class="fa-solid fa-download"></i
+            ></a>
+          </nav>
+        </div>
+
+        <section id="contact" aria-label="Contact information">
+          <div class="contact-line">
+            <span><i class="fa-solid fa-location-dot"></i> {{ location }}</span>
+            <a href="mailto:{{email}}" target="_blank"
+              ><i class="fa-solid fa-envelope"></i> {{ email }}</a
+            >
             {% if phone %}
-            <p><i class="fa-solid fa-phone"></i> {{ phone }}</p>
+            <span><i class="fa-solid fa-phone"></i> {{ phone }}</span>
             {% endif %}
-          </div>
-          <ul>
             {% for link in links %}
-            <li>
-              <a
-                class="hover:text-indigo-700 hover:underline"
-                href="{{ link.url }}"
-                target="_blank"
-                ><i class="{{ link.icon }}"></i> {{ link.url }}</a
-              >
-            </li>
+            <a href="{{ link.url }}" target="_blank"
+              ><i class="{{ link.icon }}"></i> {{ link.url }}</a
+            >
             {% endfor %}
-          </ul>
-        </section>
-        <section id="stack" class="mb-6">
-          <h2
-            class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
-          >
-            {{ t.stack }}
-          </h2>
-          {% for item in stack %}
-          <span
-            class="rounded py-1 px-2 my-1 bg-indigo-700 text-white inline-block"
-            >{{ item }}</span
-          >
-          {% endfor %}
-        </section>
-        <section id="skills" class="mb-6">
-          <h2
-            class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
-          >
-            {{ t.skills }}
-          </h2>
-          {% for skill in skills %}
-          <div class="mb-2">
-            <p>{{ skill.name }}</p>
-            <progress
-              max="100"
-              aria-labelledby="progress-id"
-              value="{{ skill.value }}"
-              class="w-full h-1.5 block"
-            ></progress>
           </div>
-          {% endfor %}
         </section>
-        <section id="open-source" class="mb-6">
-          <h2
-            class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
-          >
-            {{ t.open_source }}
-          </h2>
+
+        <section id="bio">
+          <div class="bio-content">{{ bio|markdown }}</div>
+        </section>
+      </header>
+
+      <section id="work">
+        <h2
+          class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
+        >
+          {{ t.work_experience }}
+        </h2>
+        {% for job in work_experience %}
+        <article class="resume-entry">
+          <div class="entry-heading flex justify-between items-center">
+            <h3>{{ job.position }}, {{ job.company }}</h3>
+            <time>{{ job.start }} - {{ job.end }}</time>
+          </div>
+          <div>{{ job.content|markdown }}</div>
+        </article>
+        {% endfor %}
+      </section>
+
+      <section id="stack">
+        <h2
+          class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
+        >
+          {{ t.stack }}
+        </h2>
+        <div class="tag-list">
+          {% for item in stack %}
+          <span>{{ item }}</span>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% if skills %}
+      <section id="skills">
+        <h2
+          class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
+        >
+          {{ t.skills }}
+        </h2>
+        {% for skill in skills %}
+        <div class="skill-entry">
+          <p>{{ skill.name }}</p>
+          <progress max="100" value="{{ skill.value }}"></progress>
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      <section id="education">
+        <h2
+          class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
+        >
+          {{ t.education }}
+        </h2>
+        {% for item in education %}
+        <article class="resume-entry">
+          <div class="entry-heading flex justify-between items-center">
+            <h3>{{ item.school }}</h3>
+            <time>{{ item.start }} - {{ item.end }}</time>
+          </div>
+          <p>{{ item.major }} / {{ item.degree }}</p>
+          <div>{{ item.content }}</div>
+        </article>
+        {% endfor %}
+      </section>
+
+      <section id="open-source">
+        <h2
+          class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
+        >
+          {{ t.open_source }}
+        </h2>
+        <div class="project-grid">
           {% for project in open_source %}
-          <div class="mb-2">
-            <div class="flex justify-between">
-              <p class="font-bold text-indigo-700">{{ project.name }}</p>
-              <div>
+          <article class="project-entry">
+            <div class="project-heading flex justify-between">
+              <h3>{{ project.name }}</h3>
+              <div class="project-stars">
                 <i class="fa-solid fa-star"></i> {{
                 github_stars(project.repository) }}
               </div>
             </div>
-            <p>
-              <a
-                class="hover:text-indigo-700 hover:underline"
-                href="{{ project.repository }}"
-                target="_blank"
+            <p class="project-repository">
+              <a href="{{ project.repository }}" target="_blank"
                 ><i class="fa-brands fa-github"></i> {{ project.repository }}</a
               >
             </p>
             <p>{{ project.description }}</p>
-          </div>
+          </article>
           {% endfor %}
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

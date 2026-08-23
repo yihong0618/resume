@@ -122,6 +122,8 @@ open_source:
     description: 使用 GitHub Actions 生成 GitHub 个人数据统计
   - name: GreptimeDB(committer)
     repository: https://github.com/GreptimeTeam/greptimedb
+  - name: DB-GPT(committer)
+    repository: https://github.com/eosphoros-ai/DB-GPT
   - name: Dify(Contributor)
     repository: https://github.com/langgenius/dify
   - name: cpython(Contributor)
