@@ -6,6 +6,8 @@
 // times a scale k. The generator raises `density` (lowering k) until the
 // content fits on one page; whatever height is left goes to fractional gaps,
 // so the page always ends at the bottom margin.
+#import "@preview/sicons:16.0.0": sicon
+
 #let color-accent = rgb("#0f172a")
 #let color-heading = rgb("#111827")
 #let color-text = rgb("#1f2937")
@@ -45,6 +47,22 @@
 
 // `.entry-role::before { content: "·"; margin: 0 0.45em }`
 #let sep = [#h(0.45em)#text(fill: color-muted)[·]#h(0.45em)]
+
+// Brand icon from Simple Icons (https://simpleicons.org, via `sicons`), in
+// the website's `.contact-line i` colour and dropped below the baseline like
+// Font Awesome's `vertical-align: -0.125em`. The icon is placed in a
+// zero-height box so it never makes its line taller than plain text, which
+// would shift the single-page fit.
+#let brand-icon(slug, fill: color-muted-strong) = box(
+  width: 1em,
+  place(bottom, dy: 0.125em, sicon(slug: slug, size: 1em, icon-color: fill.to-hex())),
+)
+
+// Prefix `body` with a brand icon; Simple Icons only has brand logos, so
+// items without a brand (`slug: none`) stay plain text.
+#let with-icon(slug, body) = if slug == none { body } else {
+  [#brand-icon(slug)#h(0.35em)#body]
+}
 
 // Drop the scheme and trailing slash so links read like the website.
 #let display-url(url) = url.replace("https://", "").replace("http://", "").trim("/", at: end)
@@ -99,14 +117,19 @@
     below: 0pt,
     text(size: 27pt, weight: bold, fill: color-heading, tracking: -0.02em, author),
   )
+  let email-icon = if email.ends-with("@gmail.com") { "gmail" }
   let contacts = (
     if location != "" { location },
-    if email != "" { link("mailto:" + email, email) },
+    if email != "" { link("mailto:" + email, with-icon(email-icon, email)) },
     if phone != "" { phone },
     if personal-site != "" { link(personal-site, display-url(personal-site)) },
     if blog != "" { link(blog, display-url(blog)) },
-    if github != "" { link("https://github.com/" + github, "github.com/" + github) },
-    if telegram != "" { link("https://t.me/" + telegram, "t.me/" + telegram) },
+    if github != "" {
+      link("https://github.com/" + github, with-icon("github", "github.com/" + github))
+    },
+    if telegram != "" {
+      link("https://t.me/" + telegram, with-icon("telegram", "t.me/" + telegram))
+    },
   ).filter(i => i != none)
   block(
     above: 1.3em,
@@ -208,7 +231,12 @@
     }
   })
   if repo_label != "" {
-    block(above: 0.55em, below: 0pt, link(url, text(size: 0.95em, fill: color-muted-strong, repo_label)))
+    let repo-icon = if url.contains("github.com/") { "github" }
+    block(above: 0.55em, below: 0pt, link(url, text(
+      size: 0.95em,
+      fill: color-muted-strong,
+      with-icon(repo-icon, repo_label),
+    )))
   }
   if description != "" {
     block(above: 0.6em, below: 0pt, description)

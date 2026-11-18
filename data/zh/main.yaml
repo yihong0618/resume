@@ -55,7 +55,7 @@ work_experience:
       * 重构多个 Greenplum 扩展的 CI/CD 流程，提升可维护性
       * 开发多个融合 ChatGPT 与 Greenplum/PostgreSQL 的概念验证项目
 
-  - company: 思科
+  - company: Cisco 
     position: 网络自动化工程师
     start: "2019.10"
     end: "2022.03"
