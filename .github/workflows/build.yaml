@@ -23,26 +23,27 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7.1.0
         with:
-          python-version: "3.10"
+          python-version: "3.14"
 
       - name: Install PDM
-        uses: pdm-project/setup-pdm@v4
+        uses: pdm-project/setup-pdm@v4.6
         with:
-          python-version: "3.10"
+          python-version: "3.14"
+          version: "2.29.7"
           cache: true
 
       - name: Install dependencies
-        run: pdm install
+        run: pdm install --frozen-lockfile
 
       - name: Set up Typst
-        uses: typst-community/setup-typst@v4
+        uses: typst-community/setup-typst@v5.3.2
 
       - name: Generate PDF files
         env:
@@ -68,15 +69,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           ref: main
-      - uses: pdm-project/setup-pdm@v4
+      - uses: pdm-project/setup-pdm@v4.6
         with:
-          python-version: "3.10"
+          python-version: "3.14"
+          version: "2.29.7"
           cache: true
       - name: Install dependencies
-        run: pdm install
+        run: pdm install --frozen-lockfile
 
       - name: Run build
         env:
@@ -84,10 +86,10 @@ jobs:
         run: pdm run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@main
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           # Upload dist repository
           path: "./output"
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@main
+        uses: actions/deploy-pages@v5.0.1
