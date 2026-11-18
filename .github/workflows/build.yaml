@@ -45,6 +45,8 @@ jobs:
         uses: typst-community/setup-typst@v4
 
       - name: Generate PDF files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pdm run pdf
 
       - name: Commit and push PDF files

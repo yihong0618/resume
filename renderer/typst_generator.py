@@ -9,6 +9,10 @@ from typing import Any, Dict
 import requests
 import yaml
 
+# The layout targets a single A4 page; see `density` in typst_template.typ.
+MAX_PAGES = 1
+MAX_DENSITY = 15
+
 
 @lru_cache(None)
 def get_github_stars(repository: str) -> str:
@@ -50,6 +54,16 @@ class TypstResumeGenerator:
         # Escape characters used in Typst string literals.
         return text.replace("\\", "\\\\").replace('"', '\\"')
     
+    @staticmethod
+    def _tie_last_word(line: str) -> str:
+        """Join a bullet's last two words with a non-breaking space (`~`) so
+        a wrapped bullet never ends on a single orphaned word."""
+        marker, sep, text = line.partition("- ")
+        head, space, tail = text.rpartition(" ")
+        if not space or not head.strip():
+            return line
+        return f"{marker}{sep}{head}~{tail}"
+
     def _format_bio(self, bio: str) -> str:
         """Format bio bullets for Typst."""
         lines = bio.strip().split('\n')
@@ -63,7 +77,7 @@ class TypstResumeGenerator:
                 elif line.startswith('*'):
                     # Replace * with -
                     line = '-' + line[1:]
-                formatted_lines.append(line)
+                formatted_lines.append(self._tie_last_word(line))
         return '\n'.join(formatted_lines)
     
     def _format_work_content(self, content: str) -> str:
@@ -82,10 +96,12 @@ class TypstResumeGenerator:
                 elif line.startswith('-'):
                     # Add proper indentation
                     line = '  ' + line
-                formatted_lines.append(line)
+                formatted_lines.append(self._tie_last_word(line))
         return '\n'.join(formatted_lines)
     
-    def _generate_contact_info(self, data: Dict[str, Any], lang: str) -> str:
+    def _generate_contact_info(
+        self, data: Dict[str, Any], lang: str, density: int = 0
+    ) -> str:
         """Generate contact information section."""
         contact_params = []
         
@@ -141,18 +157,15 @@ class TypstResumeGenerator:
             blog = self._escape_typst(blog)
             contact_params.append(f'  blog: "{blog}",')
 
-        # English copy wraps more often, so use the template's compact text
-        # rhythm to keep Education with the rest of the first-page profile.
-        if lang == "en":
-            contact_params.append("  compact: true,")
+        contact_params.append(f'  lang: "{lang}",')
+        if density:
+            contact_params.append(f"  density: {density},")
         
         return "\n".join(contact_params)
     
     def _generate_bio_section(self, data: Dict[str, Any], lang: str) -> str:
-        """Generate bio/about section."""
-        title = "About Me" if lang == "en" else "个人简介"
-        bio = self._format_bio(data.get("bio", ""))
-        return f"== {title}\n\n{bio}"
+        """Generate the bio bullets shown directly under the header."""
+        return self._format_bio(data.get("bio", ""))
     
     def _generate_work_section(self, data: Dict[str, Any], lang: str) -> str:
         """Generate work experience section."""
@@ -167,29 +180,19 @@ class TypstResumeGenerator:
             end = work.get("end", "")
             if end.lower() == "now":
                 end = "至今" if lang == "zh" else "Present"
-            date = self._escape_typst(f"{start} - {end}")
+            date = self._escape_typst(f"{start} – {end}")
             content = self._format_work_content(work.get("content", ""))
             
             entry = f'''#work(
-  title: "{position}",
-  location: "{company}",
+  company: "{company}",
+  position: "{position}",
   date: "{date}",
 )[
 {content}
 ]'''
             work_entries.append(entry)
         
-        return f"== {title}\n\n" + "\n\n".join(work_entries)
-    
-    def _generate_skills_section(self, data: Dict[str, Any], lang: str) -> str:
-        """Generate skills/stack section."""
-        t = data.get("t", {})
-        title = t.get("stack", "Technical Stack")
-        
-        skills = data.get("stack", [])
-        skills_str = ", ".join(f'"{skill}"' for skill in skills)
-        
-        return f"== {title}\n\n#skills((\n  {skills_str}\n))"
+        return f"== {title}\n\n" + "\n\n#entry-gap\n\n".join(work_entries)
     
     def _generate_opensource_section(self, data: Dict[str, Any], lang: str) -> str:
         """Generate open source projects section."""
@@ -199,20 +202,14 @@ class TypstResumeGenerator:
         project_entries = []
         for project in data.get("open_source", []):
             name = self._escape_typst(str(project.get("name", "")))
+            role = self._escape_typst(str(project.get("role", "")))
             url = str(project.get("repository", ""))
             escaped_url = self._escape_typst(url)
             description = self._escape_typst(str(project.get("description", "")))
-
-            repo_label = ""
-            if "github.com/" in url:
-                repo_label = url.split("github.com/", 1)[-1]
-            elif url:
-                repo_label = (
-                    url.replace("https://", "")
-                    .replace("http://", "")
-                    .rstrip("/")
-                )
-            repo_label = self._escape_typst(repo_label)
+            # Same "owner/repo" label as the website's project cards.
+            repo_label = self._escape_typst(
+                url.split("://", 1)[-1].rstrip("/").split("/", 1)[-1]
+            )
 
             stars = ""
             if "github.com/" in url:
@@ -222,22 +219,24 @@ class TypstResumeGenerator:
                     stars = ""
             stars = self._escape_typst(stars)
             
-            entry = f'''#project(
-  name: "{name}",
-  url: "{escaped_url}",
-  repo_label: "{repo_label}",
-  stars: "{stars}",
-  description: "{description}",
-)'''
+            entry = f'''  project(
+    name: "{name}",
+    role: "{role}",
+    url: "{escaped_url}",
+    repo_label: "{repo_label}",
+    stars: "{stars}",
+    description: "{description}",
+  ),'''
             project_entries.append(entry)
-        
-        return f"== {title}\n\n" + "\n\n".join(project_entries)
+
+        projects = "\n".join(project_entries)
+        return f"== {title}\n\n#project-grid(\n{projects}\n)"
     
     def _generate_education_section(self, data: Dict[str, Any], lang: str) -> str:
         """Generate education section."""
         t = data.get("t", {})
         title = t.get("education", "Education")
-        
+
         edu_entries = []
         for edu in data.get("education", []):
             school = self._escape_typst(str(edu.get("school", "")))
@@ -245,7 +244,7 @@ class TypstResumeGenerator:
             degree = self._escape_typst(str(edu.get("degree", "")))
             start = edu.get("start", "")
             end = edu.get("end", "")
-            date = self._escape_typst(f"{start} - {end}")
+            date = self._escape_typst(f"{start} – {end}")
             
             entry = f'''#education(
   institution: "{school}",
@@ -255,9 +254,9 @@ class TypstResumeGenerator:
 )'''
             edu_entries.append(entry)
         
-        return f"== {title}\n\n" + "\n\n".join(edu_entries)
+        return f"== {title}\n\n" + "\n\n#entry-gap\n\n".join(edu_entries)
     
-    def generate_typst_file(self, locale: str) -> Path:
+    def generate_typst_file(self, locale: str, density: int = 0) -> Path:
         """Generate a Typst file for the given locale."""
         yaml_file = self.data_dir / locale / "main.yaml"
         
@@ -265,14 +264,12 @@ class TypstResumeGenerator:
             data = yaml.safe_load(f)
         
         # Generate sections
-        contact_info = self._generate_contact_info(data, locale)
+        contact_info = self._generate_contact_info(data, locale, density)
         bio_section = self._generate_bio_section(data, locale)
         work_section = self._generate_work_section(data, locale)
-        skills_section = self._generate_skills_section(data, locale)
         education_section = self._generate_education_section(data, locale)
         opensource_section = self._generate_opensource_section(data, locale)
-        opensource_pagebreak = "#pagebreak()\n\n" if locale == "zh" else ""
-        
+
         # Combine into full document
         typst_content = f'''#import "typst_template.typ": *
 
@@ -284,31 +281,29 @@ class TypstResumeGenerator:
 
 {work_section}
 
-{skills_section}
-
 {education_section}
 
-{opensource_pagebreak}{opensource_section}
+{opensource_section}
 '''
         
         # Write to file
         output_file = self.root / f"resume_{locale}.typ"
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(typst_content)
-        
-        print(f"\x1b[32mGenerated\x1b[0m {output_file.name}")
+
         return output_file
     
-    def compile_to_pdf(self, typst_file: Path) -> Path:
-        """Compile a Typst file to PDF."""
-        print(f"\x1b[32mCompiling\x1b[0m {typst_file.name} to PDF...")
-
+    def _require_typst(self) -> None:
         if not self.typst_bin:
             raise RuntimeError(
                 "Typst CLI was not found in PATH. Install it first, for example:\n"
                 "  macOS (Homebrew): brew install typst\n"
                 "  or visit: https://github.com/typst/typst#installation"
             )
+
+    def compile_to_pdf(self, typst_file: Path) -> Path:
+        """Compile a Typst file to PDF."""
+        print(f"\x1b[32mCompiling\x1b[0m {typst_file.name} to PDF...")
 
         result = subprocess.run(
             [self.typst_bin, "compile", str(typst_file)],
@@ -329,19 +324,41 @@ class TypstResumeGenerator:
         
         print(f" ↘ \x1b[32mSuccessful\x1b[0m, size: {size_str}")
         return pdf_file
+
+    def page_count(self, typst_file: Path) -> int:
+        """Read the page count the template exposes as `<resume-pages>`."""
+        commands = (
+            ["eval", "query(<resume-pages>).first().value", "--in", str(typst_file)],
+            ["query", str(typst_file), "<resume-pages>", "--field", "value", "--one"],
+        )
+        for args in commands:  # `eval` on Typst >= 0.15, `query` before that
+            result = subprocess.run(
+                [self.typst_bin, *args], capture_output=True, text=True
+            )
+            if result.returncode == 0 and result.stdout.strip().isdigit():
+                return int(result.stdout.strip())
+        return 0
     
     def generate_all(self) -> None:
         """Generate all Typst files and compile to PDF."""
+        self._require_typst()
         for locale_dir in self.data_dir.iterdir():
             if not locale_dir.is_dir():
                 continue
-            
+
             locale = locale_dir.name
-            
-            # Generate Typst file
-            typst_file = self.generate_typst_file(locale)
-            
-            # Compile to PDF
+
+            # Use the loosest density that still fits on one page, so the
+            # text fills the page instead of leaving the space to the gaps.
+            for density in range(MAX_DENSITY + 1):
+                typst_file = self.generate_typst_file(locale, density)
+                pages = self.page_count(typst_file)
+                if pages <= MAX_PAGES:
+                    break
+            else:
+                print(f"\x1b[33mWarning\x1b[0m {typst_file.name} spans {pages} pages")
+
+            print(f"\x1b[32mGenerated\x1b[0m {typst_file.name} (density {density})")
             self.compile_to_pdf(typst_file)
 
 

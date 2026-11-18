@@ -1,16 +1,16 @@
 t: # translations
   work_experience: 工作经历
   open_source: 开源项目
-  stack: 技术栈
   honors: 其他荣誉
   education: 教育经历
   download_pdf: 下载 PDF
+  present: 至今
 
 title: 简历
 name: 伊洪 (yihong0618)
 bio: |
   * 微软 MVP、Apache OpenDAL Committer；开源开发者，GitHub 拥有 6K 关注者，项目累计获得 3 万+ Stars
-  * GreptimeDB、OceanBase 社区布道师
+  * GreptimeDB、OceanBase 社区布道师，Kimi 全球大使
   * 多个千星开源项目作者，并深度参与 vscode-leetcode、stravalib、autocut、DB-GPT、Dify、OpenDAL 等项目
   * 全栈工程师，拥有 7 年 Python 开发经验，专注后端开发与 CI/CD 自动化
   * 具备 LLM 项目从 0 到 1 的完整开发经验
@@ -46,7 +46,7 @@ work_experience:
 
   - company: VMware
     position: 数据库开发工程师（Greenplum / PostgreSQL）
-    start: "2022.3"
+    start: "2022.03"
     end: "2024.11"
     content: |
       * 开发并维护多个 Greenplum 扩展，包括 pgml、pgvector
@@ -58,7 +58,7 @@ work_experience:
   - company: 思科
     position: 网络自动化工程师
     start: "2019.10"
-    end: "2022.3"
+    end: "2022.03"
     content: |
       * 使用 Python 开发多个网络自动化工具
       * 基于 Django 为网络运维团队开发维护工具
@@ -66,7 +66,7 @@ work_experience:
 
   - company: 东软教育科技集团
     position: 软件开发 / 讲师
-    start: "2018.9"
+    start: "2018.09"
     end: "2019.10"
     content: |
       * 开发用于项目实训与实践教学的软件
@@ -74,26 +74,13 @@ work_experience:
 
   - company: 金山（西山居）
     position: 数据分析师 / 游戏运营
-    start: "2015.4"
-    end: "2018.4"
+    start: "2015.04"
+    end: "2018.04"
     content: |
       * 负责《小米枪战》的数据体系设计、埋点及数据分析
       * 负责《反恐行动》的数据分析与报告撰写
       * 开展竞品及市场调研，为多个项目的规划、立项与研发提供决策支持
       * 负责西山居大连 VR 实验室的筹建、开发及游戏前期研究
-
-stack:
-  - Python
-  - Rust
-  - Go
-  - DevOps
-  - React
-  - 开源
-  - 生成式 AI
-  - PostgreSQL
-  - 市场运营
-  - 数据分析
-  - 数据可视化
 
 open_source:
   - name: running_page
@@ -120,14 +107,22 @@ open_source:
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
     description: 使用 GitHub Actions 生成 GitHub 个人数据统计
-  - name: GreptimeDB(committer)
+  - name: GreptimeDB
+    role: Committer
     repository: https://github.com/GreptimeTeam/greptimedb
-  - name: DB-GPT(committer)
+    description: 开源云原生时序数据库
+  - name: DB-GPT
+    role: Committer
     repository: https://github.com/eosphoros-ai/DB-GPT
-  - name: Dify(Contributor)
+    description: AI 原生数据应用开发框架
+  - name: Dify
+    role: Contributor
     repository: https://github.com/langgenius/dify
-  - name: cpython(Contributor)
+    description: 开源 LLM 应用开发平台
+  - name: CPython
+    role: Contributor
     repository: https://github.com/python/cpython
+    description: Python 语言官方实现
 
 education:
   - school: 沈阳工业大学

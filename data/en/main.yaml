@@ -1,16 +1,16 @@
 t: # translations
   work_experience: Work Experience
   open_source: Open Source Projects
-  stack: Technical Stack
   honors: Honors
   education: Education
   download_pdf: Download PDF
+  present: Present
 
 title: Resume
 name: Yihong (yihong0618)
 bio: |
   * Microsoft MVP and Apache OpenDAL committer; open-source developer with 6K GitHub followers and 30K+ stars across projects
-  * Community Evangelist for GreptimeDB and OceanBase
+  * Community Evangelist for GreptimeDB, OceanBase and Kimi
   * Creator of multiple projects with 1K+ stars and core contributor to vscode-leetcode, stravalib, autocut, DB-GPT, Dify, OpenDAL, and more
   * Full-stack engineer with 7 years of Python experience, specializing in backend development and CI/CD automation
   * Experience building LLM products from zero to one
@@ -47,7 +47,7 @@ work_experience:
 
   - company: VMware
     position: Database Development Engineer (Greenplum / PostgreSQL)
-    start: "2022.3"
+    start: "2022.03"
     end: "2024.11"
     content: |
       * Developed and maintained multiple Greenplum extensions, including pgml and pgvector
@@ -59,7 +59,7 @@ work_experience:
   - company: Cisco
     position: Network Automation Engineer
     start: "2019.10"
-    end: "2022.3"
+    end: "2022.03"
     content: |
       * Built multiple network automation tools in Python
       * Developed Django-based maintenance tools for network operations teams
@@ -67,7 +67,7 @@ work_experience:
 
   - company: Neusoft Education Technology Group
     position: Software Developer / Instructor
-    start: "2018.9"
+    start: "2018.09"
     end: "2019.10"
     content: |
       * Developed educational software for project-based training and hands-on coursework
@@ -75,26 +75,13 @@ work_experience:
 
   - company: Kingsoft (Seasun Games)
     position: Data Analyst / Game Operations
-    start: "2015.4"
-    end: "2018.4"
+    start: "2015.04"
+    end: "2018.04"
     content: |
       * Designed analytics and event tracking and performed data analysis for "Xiaomi Gunfight"
       * Conducted data analysis and produced reports for "MAT"
       * Conducted competitor and market research to inform the planning and development of multiple projects
       * Helped establish and develop Seasun's Dalian VR Lab and conducted early-stage game research
-
-stack:
-  - Python
-  - Rust
-  - Go
-  - DevOps
-  - React
-  - Open Source
-  - Generative AI
-  - PostgreSQL
-  - Marketing Operations
-  - Data Analysis
-  - Data Visualization
 
 open_source:
   - name: running_page
@@ -121,14 +108,22 @@ open_source:
   - name: github-readme-stats
     repository: https://github.com/yihong0618/github-readme-stats
     description: Generate GitHub profile stats with GitHub Actions
-  - name: GreptimeDB(committer)
+  - name: GreptimeDB
+    role: Committer
     repository: https://github.com/GreptimeTeam/greptimedb
-  - name: DB-GPT(committer)
+    description: Open-source cloud-native time-series database
+  - name: DB-GPT
+    role: Committer
     repository: https://github.com/eosphoros-ai/DB-GPT
-  - name: Dify(Contributor)
+    description: AI-native data app development framework
+  - name: Dify
+    role: Contributor
     repository: https://github.com/langgenius/dify
-  - name: cpython(Contributor)
+    description: Open-source LLM app development platform
+  - name: CPython
+    role: Contributor
     repository: https://github.com/python/cpython
+    description: The reference implementation of Python
 
 education:
   - school: Shenyang University of Technology

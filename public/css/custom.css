@@ -61,9 +61,7 @@ a:hover {
 }
 
 .resume-header {
-  padding-bottom: 24px;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--accent);
+  margin-bottom: 34px;
 }
 
 .identity-row {
@@ -141,8 +139,13 @@ a:hover {
 #bio li,
 #work li {
   padding-left: 0.1rem;
-  margin-bottom: 0.15rem;
-  line-height: 1.42;
+  margin-bottom: 0.2rem;
+  line-height: 1.5;
+}
+
+#bio li:last-child,
+#work li:last-child {
+  margin-bottom: 0;
 }
 
 #bio li::marker,
@@ -152,7 +155,6 @@ a:hover {
 }
 
 #work > h2,
-#stack > h2,
 #skills > h2,
 #education > h2,
 #open-source > h2 {
@@ -165,40 +167,63 @@ a:hover {
   letter-spacing: 0.06em;
 }
 
-#stack,
 #skills,
 #education,
 #open-source {
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .resume-entry {
   min-width: 0;
-  padding: 10px 0 14px;
+  padding: 4px 0 0;
 }
 
 .resume-entry + .resume-entry {
-  border-top: 1px solid rgba(203, 213, 225, 0.65);
+  margin-top: 18px;
 }
 
 .entry-heading {
   min-width: 0;
+  align-items: baseline !important;
   gap: 18px;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
 }
 
 .entry-heading h3 {
+  min-width: 0;
   margin: 0;
   color: var(--heading);
   font-size: 1.02rem;
   font-weight: 600;
 }
 
+.entry-org {
+  font-weight: 700;
+}
+
+/* A trailing full-width bracket already carries half an em of blank space. */
+.entry-org--trim {
+  margin-right: -0.5em;
+}
+
+.entry-role {
+  color: var(--muted-strong);
+  font-weight: 400;
+}
+
+.entry-role::before {
+  content: "·";
+  margin: 0 0.45em;
+  color: var(--muted);
+}
+
 .entry-heading time {
   flex: 0 0 auto;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .resume-entry p {
@@ -206,19 +231,8 @@ a:hover {
   overflow-wrap: anywhere;
 }
 
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.tag-list span {
-  padding: 0.2rem 0.55rem;
-  color: var(--heading);
-  background: var(--chip);
-  border-radius: 3px;
-  font-size: 0.82rem;
-  font-weight: 500;
+.resume-entry .entry-meta {
+  color: var(--muted-strong);
 }
 
 .skill-entry {
@@ -287,20 +301,44 @@ progress::-moz-progress-bar {
   overflow-wrap: anywhere;
 }
 
+.project-role {
+  display: inline-block;
+  margin-left: 0.35em;
+  padding: 0 0.4em;
+  color: var(--muted-strong);
+  border: 1px solid var(--divider);
+  border-radius: 3px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  vertical-align: 0.1em;
+}
+
 .project-stars {
   flex: 0 0 auto;
   color: var(--muted-strong);
   font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.project-stars i {
+  color: #d4a72c;
 }
 
 .project-entry p {
   margin: 0.15rem 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .project-repository {
-  margin: 0.3rem 0 !important;
+  margin: 0.25rem 0 0.35rem !important;
+  font-size: 0.8rem;
+}
+
+.project-description {
+  color: var(--ink);
 }
 
 .project-entry a {

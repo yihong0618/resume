@@ -20,22 +20,35 @@ def format_size(size: int) -> str:
         return f"{size / 1024**2:.2f} MB"
 
 
+def display_url(url: str, strip_host: bool = False) -> str:
+    """Shorten a URL for display: drop the scheme, trailing slash, and
+    optionally the host (e.g. ``github.com/user/repo`` -> ``user/repo``)."""
+    text = url.split("://", 1)[-1].rstrip("/")
+    if strip_host and "/" in text:
+        text = text.split("/", 1)[1]
+    return text
+
+
 @lru_cache(None)
 def get_github_stars(repository: str) -> str:
+    """Fetch GitHub stars; return an empty string when unavailable."""
+    if not repository.startswith("https://github.com/"):
+        return ""
+
     url = repository.replace("https://github.com", "https://api.github.com/repos")
     headers = {}
     github_token = os.environ.get("GITHUB_TOKEN")
     if github_token:
         headers["Authorization"] = f"token {github_token}"
-    
-    resp = requests.get(url, headers=headers)
-    data = resp.json()
-    
-    # Handle API errors gracefully
-    if "stargazers_count" not in data:
-        return "N/A"
-    
-    stars_count = data["stargazers_count"]
+
+    try:
+        data = requests.get(url, headers=headers, timeout=8).json()
+    except Exception:
+        return ""
+
+    stars_count = data.get("stargazers_count")
+    if stars_count is None:
+        return ""
     if stars_count > 1000:
         return f"{stars_count / 1000:.1f}k"
     return str(stars_count)
@@ -62,6 +75,7 @@ class ResumeRenderer:
     def jinja_env(self) -> Environment:
         env = Environment(loader=FileSystemLoader(self.root / "templates"))
         env.filters["markdown"] = self.render_markdown
+        env.filters["display_url"] = display_url
         env.globals["github_stars"] = get_github_stars
         env.globals["get_url"] = self.get_url
         return env

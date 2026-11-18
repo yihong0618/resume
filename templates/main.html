@@ -53,7 +53,7 @@
             {% endif %}
             {% for link in links %}
             <a href="{{ link.url }}" target="_blank"
-              ><i class="{{ link.icon }}"></i> {{ link.url }}</a
+              ><i class="{{ link.icon }}"></i> {{ link.url|display_url }}</a
             >
             {% endfor %}
           </div>
@@ -73,25 +73,20 @@
         {% for job in work_experience %}
         <article class="resume-entry">
           <div class="entry-heading flex justify-between items-center">
-            <h3>{{ job.position }}, {{ job.company }}</h3>
-            <time>{{ job.start }} - {{ job.end }}</time>
+            <h3>
+              <span
+                class="entry-org{% if job.company.endswith('）') %} entry-org--trim{% endif %}"
+                >{{ job.company }}</span
+              ><span class="entry-role">{{ job.position }}</span>
+            </h3>
+            <time
+              >{{ job.start }} – {{ t.present if job.end == "now" else job.end
+              }}</time
+            >
           </div>
           <div>{{ job.content|markdown }}</div>
         </article>
         {% endfor %}
-      </section>
-
-      <section id="stack">
-        <h2
-          class="uppercase font-bold tracking-widest text-indigo-700 text-xl mb-4"
-        >
-          {{ t.stack }}
-        </h2>
-        <div class="tag-list">
-          {% for item in stack %}
-          <span>{{ item }}</span>
-          {% endfor %}
-        </div>
       </section>
 
       {% if skills %}
@@ -120,10 +115,12 @@
         <article class="resume-entry">
           <div class="entry-heading flex justify-between items-center">
             <h3>{{ item.school }}</h3>
-            <time>{{ item.start }} - {{ item.end }}</time>
+            <time>{{ item.start }} – {{ item.end }}</time>
           </div>
-          <p>{{ item.major }} / {{ item.degree }}</p>
+          <p class="entry-meta">{{ item.major }} · {{ item.degree }}</p>
+          {% if item.content %}
           <div>{{ item.content }}</div>
+          {% endif %}
         </article>
         {% endfor %}
       </section>
@@ -136,20 +133,28 @@
         </h2>
         <div class="project-grid">
           {% for project in open_source %}
+          {% set stars = github_stars(project.repository) %}
           <article class="project-entry">
             <div class="project-heading flex justify-between">
-              <h3>{{ project.name }}</h3>
+              <h3>
+                {{ project.name }}{% if project.role %}
+                <span class="project-role">{{ project.role }}</span>{% endif %}
+              </h3>
+              {% if stars %}
               <div class="project-stars">
-                <i class="fa-solid fa-star"></i> {{
-                github_stars(project.repository) }}
+                <i class="fa-solid fa-star"></i> {{ stars }}
               </div>
+              {% endif %}
             </div>
             <p class="project-repository">
               <a href="{{ project.repository }}" target="_blank"
-                ><i class="fa-brands fa-github"></i> {{ project.repository }}</a
+                ><i class="fa-brands fa-github"></i> {{
+                project.repository|display_url(strip_host=True) }}</a
               >
             </p>
-            <p>{{ project.description }}</p>
+            {% if project.description %}
+            <p class="project-description">{{ project.description }}</p>
+            {% endif %}
           </article>
           {% endfor %}
         </div>
